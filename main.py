@@ -22,7 +22,7 @@ def make_board(rows, columns):
 
     """
     map_of_board= \
-        ("|xxxxxxxxxx xxxxxxxxxx|"
+        ("|xxxxxxxxxx xxxxxxxxxxx|"
          "|xxxxxxxxxx xxxxxxxxxx|"
          "|xxxxxxxxxx xxxxxxxxxx|"
          "|xxxxxxxxxx xxxxxxxxxx|"
