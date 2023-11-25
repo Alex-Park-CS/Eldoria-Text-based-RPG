@@ -21,8 +21,8 @@ def make_board():
     :return: a dictionary with tuples as the keys, and strings as values
 
     """
-    map_of_board = ["XXXHHHHHXX XXXBBBBBXX",
-                    "XXXVVVVVXX XXXXXXXXXX",
+    map_of_board = ["XXXXXXXXXX XXXXXXXXXX",
+                    "XXXXXXXXXX XXXXXXXXXX",
                     "XXXXXXXXXX XXXXXXXXXX",
                     "XXXXXXXXXX XXXXXXXXXX",
                     "XXXXXXXXXX XXXXXXXXXX",
@@ -82,7 +82,6 @@ def validate_move(board, character, user_direction):
     """
 
     if user_direction == '1':
-        # add an and condition for where the tile_type is not 'X'
         if (character["x-position"], character["y-position"] - 1) in board:
             return True
         else:
@@ -103,7 +102,7 @@ def validate_move(board, character, user_direction):
         else:
             return False
         
-
+        
 def main():
     print(make_board())
 
