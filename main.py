@@ -38,6 +38,23 @@ def make_board():
             map_dict[(x, y)] = char
     return map_dict
 
+def get_user_choice():
+    """
+    Get input direction from user in numbers.
+
+    The input will be integers which signify direction where 1 = North, 2 = West, 3 = South, 4 = East
+    :postcondition: the user input direction in integer
+    :return: an integer
+
+    """
+    list_choice = ('1', '2', '3', '4')
+    user_direction = '0'
+    while user_direction not in list_choice:
+        user_direction = input("Enter a number for a direction from North(1), West(2), South(3), East(4): ").strip()
+        if user_direction in list_choice:
+            return user_direction
+        else:
+            print("Read instructions again...")
 
 def main():
     print(make_board())
