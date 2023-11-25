@@ -56,6 +56,53 @@ def get_user_choice():
         else:
             print("Read instructions again...")
 
+def validate_move(board, character, user_direction):
+    """
+    Check if the user's direction is within the bounds of the board.
+
+    Validates the user choice and returns True if the user chosen direction can be actually reached.
+    :param board: a dictionary
+    :param character: another dictionary
+    :param user_direction: a string
+    :precondition board: a game board with row and columns >= 2
+    :precondition character: a character
+    :precondition user_direction: a string between and including 1 and 4
+    :postcondition: validate if the character can go to the desired direction
+    :return: boolean value
+
+    >>> game_board = {(0, 0): "Empty Room", (0, 1): "Empty Room", (1, 0): "Empty Room", (1, 1): "Empty Room"}
+    >>> game_character = {"x-position": 0, "y-position": 0, "HP": 5}
+    >>> validate_move(game_board, game_character, '3')
+    True
+
+    >>> game_board = {(0, 0): "Empty Room", (0, 1): "Empty Room", (1, 0): "Empty Room", (1, 1): "Empty Room"}
+    >>> game_character = {"x-position": 0, "y-position": 0, "HP": 5}
+    >>> validate_move(game_board, game_character, '2')
+    False
+    """
+
+    if user_direction == '1':
+        if (character["x-position"], character["y-position"] - 1) in board:
+            return True
+        else:
+            return False
+    elif user_direction == '2':
+        if (character["x-position"] - 1, character["y-position"]) in board:
+            return True
+        else:
+            return False
+    elif user_direction == '3':
+        if (character["x-position"], character["y-position"] + 1) in board:
+            return True
+        else:
+            return False
+    elif user_direction == '4':
+        if (character["x-position"] + 1, character["y-position"]) in board:
+            return True
+        else:
+            return False
+        
+        
 def main():
     print(make_board())
 
