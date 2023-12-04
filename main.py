@@ -1,7 +1,6 @@
 # This is a sample Python script.
 import random
-# Press Shift+F10 to eXecute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from character.character_create import make_character
 
 def make_board():
     """
@@ -123,7 +122,9 @@ def print_board(board):
 
 def main():
     board = make_board()
+    character = make_character()
     print_board(board)
+    print(character)
 
 
 if __name__ == '__main__':
