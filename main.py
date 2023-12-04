@@ -21,16 +21,27 @@ def make_board():
     :return: a dictionary with tuples as the keys, and strings as values
 
     """
-    map_of_board = ["XXXXXXXXXX XXXXXXXXXX",
+    map_of_board = ["XXXXXXXXXXXXXXXXXXXXX",
+                    "XXXXXXXXXXXXXXXXXXXXX",
+                    "X*****MCX B XCM*****X",
+                    "X******X     X******X",
+                    "X*****X       X*****X",
+                    "X****X         X****X",
+                    "X***XXXXXXKXXXXXX***X",
+                    "X                  ZX",
+                    "X********* ********HX",
                     "XXXXXXXXXX XXXXXXXXXX",
-                    "XXXXXXXXXX XXXXXXXXXX",
-                    "XXXXXXXXXX XXXXXXXXXX",
-                    "XXXXXXXXXX XXXXXXXXXX",
-                    "XXXXXXXXXX XXXXXXXXXX",
-                    "XXXXXXXXXX XXXXXXXXXX",
-                    "XXXXXXXXXX XXXXXXXXXX",
-                    "XXXXXXXXXXXXXXXXXXXXX"]
-    print(map_of_board)
+                    "XXXXXXXXXX/XXXXXXXXXX",
+                    "XH   ^   S         HX",
+                    "X   ^ ^         ^   X",
+                    "X^^X^^X^    ^ ^  ^  X",
+                    "X ^^^^^^            X",
+                    "X^XXXTXX    ^ ^     X",
+                    "X ^^^XX^         ^  X",
+                    "X ^^^^^^     ^      X",
+                    "X^  ^ ^           ^ X",
+                    "X  ^  ^             X",
+                    "XXXXXXXXXXOXXXXXXXXXX"]
 
     map_dict = {}
     for x, row in enumerate(map_of_board):
@@ -82,7 +93,7 @@ def validate_move(board, character, user_direction):
     """
 
     if user_direction == '1':
-        if (character["x-position"], character["y-position"] - 1) in board:
+        if (character["x-position"], character["y-position"] - 1) in board and board[(character["x-position"], character["y-position"] - 1)] != 'X':
             return True
         else:
             return False
@@ -102,9 +113,17 @@ def validate_move(board, character, user_direction):
         else:
             return False
         
-        
+def print_board(board):
+
+    for col in range(21):
+        for row in range(21):
+            print(board[col,row], end=' ')
+        print()
+
+
 def main():
-    print(make_board())
+    board = make_board()
+    print_board(board)
 
 
 if __name__ == '__main__':
