@@ -4,6 +4,7 @@ def make_character():
                  "x-position": 10, "y-position": 20, "model": "O"}
     return character
 
+
 def is_alive(character):
     """
     Checks if the character's HP is over 0

@@ -1,8 +1,7 @@
 # This is a sample Python script.
-import random
-from character.character_module import make_character, is_alive
-from character_movement.movement_module import get_user_choice, validate_move, move_character
-from user_display.display_for_users import print_board, describe_current_location
+from helper_functions.character_module import make_character, is_alive
+from helper_functions.movement_module import get_user_choice, validate_move, move_character
+from helper_functions.display_for_users import print_board, describe_current_location
 
 
 def make_board():
@@ -14,12 +13,7 @@ def make_board():
     y position with the second number. Each room has a description of one of "Empty room", "Ominous Hallway",
     "Room of Skulls", "Altar of Magic", which describe the type of room the player is in.
 
-    :param rows: positive, non-zero integer
-    :param columns: another positive, non-zero integer
-    :precondition rows: must be an integer greater than or equal to 2
-    :precondition columns: must be also an integer greater than or equal to 2
-    :postcondition: create a game board which has the number of rows and columns as given in the parameters; each
-    coordinate has a room description
+    :postcondition: create a game board according to ASCII art minimap in list form
     :return: a dictionary with tuples as the keys, and strings as values
 
     """
@@ -51,25 +45,6 @@ def make_board():
             map_dict[(x, y)] = char
     return map_dict
 
-def get_user_choice():
-    """
-    Get input direction from user in numbers.
-
-    The input will be integers which signify direction where 1 = North, 2 = West, 3 = South, 4 = East
-    :postcondition: the user input direction in integer
-    :return: an integer
-
-    """
-    list_choice = ('1', '2', '3', '4')
-    user_direction = '0'
-    while user_direction not in list_choice:
-        user_direction = input("Enter a number for a direction from North(1), West(2), South(3), East(4): ").strip()
-        if user_direction in list_choice:
-            return user_direction
-        else:
-            print("Read instructions again...")
-
-
 
 def main():
     board = make_board()
@@ -86,9 +61,6 @@ def main():
             describe_current_location(board, character)
         else:
             print("Cannot escape the doom! Face your fears...")
-            
-
-    
 
 
 if __name__ == '__main__':
