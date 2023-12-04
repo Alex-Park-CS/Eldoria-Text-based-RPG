@@ -44,21 +44,23 @@ def validate_move(board, character, user_direction):
 
     if user_direction == '1':
         if (character["x-position"], character["y-position"] - 1) in board and board[(character["x-position"], character["y-position"] - 1)] != 'X':
+            print("North")
             return True
         else:
+            print((character["x-position"], character["y-position"] - 1))
             return False
     elif user_direction == '2':
-        if (character["x-position"] - 1, character["y-position"]) in board:
+        if (character["x-position"] - 1, character["y-position"]) in board and board[(character["x-position"] - 1, character["y-position"])] != 'X':
             return True
         else:
             return False
     elif user_direction == '3':
-        if (character["x-position"], character["y-position"] + 1) in board:
+        if (character["x-position"], character["y-position"] + 1) in board and board[(character["x-position"], character["y-position"] + 1)] != 'X':
             return True
         else:
             return False
     elif user_direction == '4':
-        if (character["x-position"] + 1, character["y-position"]) in board:
+        if (character["x-position"] + 1, character["y-position"]) in board and board[(character["x-position"] + 1, character["y-position"])] != 'X':
             return True
         else:
             return False

@@ -76,12 +76,16 @@ def main():
     character = make_character()
     print_board(board)
     print(character)
+    describe_current_location(board, character)
     while is_alive(character):
+        print(describe_current_location(board, character), character['x-position'], ",", character['y-position'])
         direction = get_user_choice()
         valid_move = validate_move(board, character, direction)
         if valid_move:
             move_character(character, direction)
             describe_current_location(board, character)
+        else:
+            print("Cannot escape the doom! Face your fears...")
             
 
     
