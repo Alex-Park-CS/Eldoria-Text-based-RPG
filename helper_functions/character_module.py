@@ -1,5 +1,7 @@
 def make_character():
-    character = {"name": "BoB", "HP": 100, "MP": 100, "gold": 10, 
+    character = {"name": "BoB", "maxHP": 100, "maxMP": 100, "gold": 10, "level": 1,
+                 "currentHP": 100, "currentMP": 100,
+                 "maxEXP": 50, "currentEXP": 0,
                  "skills": {"magic missile": [10, 10]},
                  "x-position": 10, "y-position": 20, "model": "O"}
     return character
