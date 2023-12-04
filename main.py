@@ -37,7 +37,7 @@ def make_board():
                     "X ^^^^^^     ^      X",
                     "X^  ^ ^           ^ X",
                     "X  ^  ^             X",
-                    "XXXXXXXXXXOXXXXXXXXXX"]
+                    "XXXXXXXXXX XXXXXXXXXX"]
 
     map_dict = {}
     for x, row in enumerate(map_of_board):
