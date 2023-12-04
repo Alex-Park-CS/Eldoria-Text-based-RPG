@@ -16,9 +16,12 @@ def describe_current_location(board, character):
     return board[current_position]
 
 
-def print_board(board):
+def print_board(board, character):
 
     for col in range(21):
         for row in range(21):
-            print(board[col,row], end=' ')
+            if (character["x-position"], character["y-position"]) == (row, col):
+                print("O", end=' ')
+            else:
+                print(board[row, col], end=' ')
         print()

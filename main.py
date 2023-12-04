@@ -42,14 +42,15 @@ def make_board():
     map_dict = {}
     for x, row in enumerate(map_of_board):
         for y, char in enumerate(row):
-            map_dict[(x, y)] = char
+            map_dict[(y, x)] = char
+    print(map_dict)
     return map_dict
 
 
 def main():
     board = make_board()
     character = make_character()
-    print_board(board)
+    print_board(board, character)
     print(character)
     describe_current_location(board, character)
     while is_alive(character):
@@ -61,6 +62,7 @@ def main():
             describe_current_location(board, character)
         else:
             print("Cannot escape the doom! Face your fears...")
+        print_board(board, character)
 
 
 if __name__ == '__main__':
