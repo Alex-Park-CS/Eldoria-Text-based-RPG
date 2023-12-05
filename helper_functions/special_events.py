@@ -6,6 +6,8 @@ def determine_event(board, character):
     current_position = board[(character["x-position"], character["y-position"])]
     if current_position == '^' and chance_of_event(0.40):
         combat(character, make_pre_lv_10_field_mobs()[random.randint(0, 1)])
+    elif current_position == '*' and chance_of_event(0.50):
+        combat(character, make_post_lv_10_field_mobs()[random.randint(0, 1)])
     
 
 def chance_of_event(probability):
@@ -25,7 +27,7 @@ def check_exp(character):
         character["currentHP"] *= 1.2
         character["maxHP"] *= 1.2
         character["atk"] *= 1.5
-        print("You have leveled up!")
+        print("You have leveled up! You feel stronger, as the aura around you settles down.")
 
 
 def combat(character, enemy):
@@ -49,11 +51,11 @@ def combat(character, enemy):
                 character["gold"] += enemy["gold"]
                 character["currentEXP"] += enemy["EXP"]
                 print(f"You earned {enemy['gold']} gold! You now have {character['gold']} gold.")
-                print(f"You earned {enemy['EXP']} XP! You now have {character['currentEXP']}/{character['maxEXP']} XP.\n")
+                print(f"You earned {enemy['EXP']} XP! You now have {character['currentEXP']}/{character['maxEXP']} XP.\n\n\n")
                 check_exp(character)
         elif user_choice == 'z':
             print("You run away, shrieking like a little girl. To think that the fate of "
-                  "this world lies on the likes of you...")
+                  "this world lies on the likes of you...\n")
             break
 
 

@@ -75,18 +75,18 @@ def move_character(character, user_direction):
     # >>> move_character(character_test, user_direction_test)
 
     """
-    if user_direction == '1':
+    if user_direction == 'w':
         character["y-position"] -= 1
-    elif user_direction == '2':
+    elif user_direction == 'a':
         character["x-position"] -= 1
-    elif user_direction == '3':
+    elif user_direction == 's':
         character["y-position"] += 1
-    elif user_direction == '4':
+    elif user_direction == 'd':
         character["x-position"] += 1
 
 
 def main():
-    user_direction = "1"
+    user_direction = "w"
     character = {"x-position": 5, "y-position": 5}
 
 

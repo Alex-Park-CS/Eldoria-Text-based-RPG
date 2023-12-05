@@ -21,7 +21,7 @@ def main():
             describe_current_location(board, character)
             determine_event(board, character)
         else:
-            print("Cannot escape the doom! Face your fears...")
+            print("You cannot go there. Try again.")
         print_board(board, character)
 
 
