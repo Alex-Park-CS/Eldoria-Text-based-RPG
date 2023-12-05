@@ -1,6 +1,8 @@
 import random
 
 
+# def event_handler(board, )
+
 def combat(character, enemy):
     print(f"You have encountered a wild {enemy['name']}!!")
     while character["currentHP"] > 0 and enemy["currentHP"] > 0:
