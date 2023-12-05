@@ -29,7 +29,7 @@ def check_exp(character):
 
 
 def combat(character, enemy):
-    print(f"You have encountered a wild {enemy['name']}!!")
+    print(f"\nYou have encountered a wild {enemy['name']}!!")
     while character["currentHP"] > 0 and enemy["currentHP"] > 0:
         print(f"Current Status->   Your HP: {character['currentHP']} / {character['maxHP']}   ", end="")
         print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
@@ -49,7 +49,7 @@ def combat(character, enemy):
                 character["gold"] += enemy["gold"]
                 character["currentEXP"] += enemy["EXP"]
                 print(f"You earned {enemy['gold']} gold! You now have {character['gold']} gold.")
-                print(f"You earned {enemy['EXP']} XP! You now have {character['currentEXP']}/{character['maxEXP']} XP.")
+                print(f"You earned {enemy['EXP']} XP! You now have {character['currentEXP']}/{character['maxEXP']} XP.\n")
                 check_exp(character)
         elif user_choice == 'z':
             print("You run away, shrieking like a little girl. To think that the fate of "

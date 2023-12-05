@@ -7,11 +7,11 @@ def get_user_choice():
     :return: an integer
 
     """
-    list_choice = ('1', '2', '3', '4', 'Q')
+    list_choice = ('w', 'a', 's', 'd', 'Q')
     user_direction = '0'
     while user_direction not in list_choice:
-        user_direction = input("Enter a number for a direction from North(1), "
-                               "West(2), South(3), East(4), or 'Q' to quit: ").strip()
+        user_direction = input("Enter a number for a direction from North(w), "
+                               "West(a), South(s), East(d), or 'Q' to quit: ").strip()
         if user_direction in list_choice:
             return user_direction
         else:
@@ -34,25 +34,25 @@ def validate_move(board, character, user_direction):
 
     """
 
-    if user_direction == '1':
+    if user_direction == 'w':
         if ((character["x-position"], character["y-position"] - 1) in board
                 and board[(character["x-position"], character["y-position"] - 1)] != 'X'):
             return True
         else:
             return False
-    elif user_direction == '2':
+    elif user_direction == 'a':
         if ((character["x-position"] - 1, character["y-position"]) in board and
                 board[(character["x-position"] - 1, character["y-position"])] != 'X'):
             return True
         else:
             return False
-    elif user_direction == '3':
+    elif user_direction == 's':
         if ((character["x-position"], character["y-position"] + 1) in board and
                 board[(character["x-position"], character["y-position"] + 1)] != 'X'):
             return True
         else:
             return False
-    elif user_direction == '4':
+    elif user_direction == 'd':
         if ((character["x-position"] + 1, character["y-position"]) in board and
                 board[(character["x-position"] + 1, character["y-position"])] != 'X'):
             return True
