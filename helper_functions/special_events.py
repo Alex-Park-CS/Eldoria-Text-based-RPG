@@ -1,7 +1,21 @@
 import random
+from helper_functions.create_entity import make_pre_lv_10_field_mobs, make_post_lv_10_field_mobs
 
 
-# def event_handler(board, )
+def determine_event(board, character):
+    current_position = board[(character["x-position"], character["y-position"])]
+    if current_position == '^' and chance_of_event(0.40):
+        combat(character, make_pre_lv_10_field_mobs()[random.randint(0, 1)])
+    
+
+def chance_of_event(probability):
+    random_number = random.uniform(0, 1)
+
+    if random_number <= probability:
+        return True
+    else:
+        return False
+
 
 def check_exp(character):
     if character["currentEXP"] >= character["maxEXP"]:
@@ -36,6 +50,7 @@ def combat(character, enemy):
                 character["currentEXP"] += enemy["EXP"]
                 print(f"You earned {enemy['gold']} gold! You now have {character['gold']} gold.")
                 print(f"You earned {enemy['EXP']} XP! You now have {character['currentEXP']}/{character['maxEXP']} XP.")
+                check_exp(character)
         elif user_choice == 'z':
             print("You run away, shrieking like a little girl. To think that the fate of "
                   "this world lies on the likes of you...")

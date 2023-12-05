@@ -40,24 +40,23 @@ def make_board():
     print(map_dict)
     return map_dict
 
+
 def make_character():
     character = {"name": "BoB", "maxHP": 100, "gold": 0, "level": 1,
                  "currentHP": 100, "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
                  "x-position": 10, "y-position": 20, "model": "O"}
     return character
 
-def make_legion_soldier():
+
+def make_pre_lv_10_field_mobs():
     soldier = {"name": "Legion Soldier", "currentHP": 100, "maxHP": 100, "atk": 10, "EXP": 25, "gold": 20}
-    return soldier
-
-def make_mutant_boar():
     mutant_boar = {"name": "Mutant Boar", "currentHP": 50, "maxHP": 50, "atk": 5, "EXP": 10, "gold": 5}
-    return mutant_boar
+    list_of_pre_lvl_10_mobs = [mutant_boar, soldier]
+    return list_of_pre_lvl_10_mobs
 
-def make_legion_commander():
-    commander = {"name": "Legion Commander", "currentHP": 400, "maxHP": 400, "atk": 20, "EXP": 60, "gold": 75}
-    return commander
 
-def make_imp(): 
+def make_post_lv_10_field_mobs():
     imp = {"name": "Imp", "currentHP": 100, "maxHP": 100, "atk": 15, "EXP": 25, "gold": 20}
-    return imp
+    commander = {"name": "Legion Commander", "currentHP": 400, "maxHP": 400, "atk": 20, "EXP": 60, "gold": 75}
+    list_of_post_lvl_10_mobs = [imp, commander]
+    return list_of_post_lvl_10_mobs
