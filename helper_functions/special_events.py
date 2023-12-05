@@ -36,7 +36,6 @@ def check_exp(character):
               f"ATK: {character['atk']} --- EXP: {character['currentEXP']} / {character['maxEXP']}")
 
 
-
 def combat(character, enemy):
     print(f"\nYou have encountered a wild {enemy['name']}!!")
     while character["currentHP"] > 0 and enemy["currentHP"] > 0:
@@ -48,7 +47,7 @@ def combat(character, enemy):
             print(f"You rolled the die of fate... to roll {user_roll}!\n")
             damage = character["atk"] * user_roll
             enemy["currentHP"] -= damage
-            print(f"You used {character["move"]}!")
+            print(f"You used {character['move']}!")
             print(f"You dealt {damage} damage to {enemy['name']}!")
             print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
             if enemy["currentHP"] > 0:
@@ -66,6 +65,7 @@ def combat(character, enemy):
                   "this world lies on the likes of you...\n")
             break
 
+
 def shop_event(character, shop):
     print("Welcome, hero. I have travelled thousands of miles to be of assistance."
           "Here are the items that I have managed to bring for you."
@@ -73,7 +73,7 @@ def shop_event(character, shop):
     for index, item in enumerate(shop, start=1):
         print(f"{index}. Item name: {item['name']}, Price: {item['price']} gold, {item['effect']}")
 
-    print(f"\nYou currently have {character["gold"]} gold.\n")
+    print(f"\nYou currently have {character['gold']} gold.\n")
     while True:
         user_input = input("Enter the number of the item you wish to buy, or 'q' to quit: ")
         if user_input == '1':
@@ -86,9 +86,9 @@ def shop_event(character, shop):
                 shop[0]["amount"] -= 1
                 character["currentHP"] += shop[0]["added_HP"]
                 character["maxHP"] += shop[0]["added_HP"]
-                print(f"You have purchased the {shop[0]["name"]}.")
-                print(f"Your HP is now {character["currentHP"]} / {character["maxHP"]}.")
-                print(f"You now have {character["gold"]} gold.")
+                print(f"You have purchased the {shop[0]['name']}.")
+                print(f"Your HP is now {character['currentHP']} / {character['maxHP']}.")
+                print(f"You now have {character['gold']} gold.")
         elif user_input == '2':
             if shop[1]["amount"] <= 0:
                 print("Sorry, you already bought out those items.")
@@ -99,10 +99,10 @@ def shop_event(character, shop):
                 shop[1]["amount"] -= 1
                 character["atk"] += shop[1]["added_ATK"]
                 character["move"] = shop[1]["move_upgrade"]
-                print(f"You have purchased the {shop[1]["name"]}.")
-                print(f"Your ATK is now {character["atk"]}.")
-                print(f"You now attack with {character["move"]}.")
-                print(f"You now have {character["gold"]} gold.")
+                print(f"You have purchased the {shop[1]['name']}.")
+                print(f"Your ATK is now {character['atk']}.")
+                print(f"You now attack with {character['move']}.")
+                print(f"You now have {character['gold']} gold.")
         elif user_input == '3':
             if shop[2]["amount"] <= 0:
                 print("Sorry, you already bought out those items.")
@@ -112,19 +112,16 @@ def shop_event(character, shop):
                 character["gold"] -= shop[2]["price"]
                 shop[2]["amount"] -= 1
                 character["currentEXP"] += shop[2]["added_EXP"]
-                print(f"You have purchased the {shop[2]["name"]}.")
+                print(f"You have purchased the {shop[2]['name']}.")
                 check_exp(character)
-                print(f"Your ATK is now {character["atk"]}.")
-                print(f"You now have {character["gold"]} gold.")
+                print(f"Your ATK is now {character['atk']}.")
+                print(f"You now have {character['gold']} gold.")
         elif user_input == 'q':
             print("Thank you for your patronage.")
             break
         else:
             print("We don't sell anything like that... choose something else.")
 
-
-    
-    
 
 def main():
     mob = {"name": "Legion Soldier", "currentHP": 300, "maxHP": 1000, "atk": 10, "EXP": 25, "gold": 5}
