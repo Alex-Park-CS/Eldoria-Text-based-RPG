@@ -42,9 +42,9 @@ def make_board():
 
 
 def make_character():
-    character = {"name": "BoB", "maxHP": 100, "gold": 0, "level": 1,
+    character = {"name": "BoB", "maxHP": 100, "gold": 300, "level": 1,
                  "currentHP": 100, "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
-                 "x-position": 10, "y-position": 20, "model": "O"}
+                 "x-position": 10, "y-position": 20}
     return character
 
 
@@ -60,3 +60,15 @@ def make_post_lv_10_field_mobs():
     commander = {"name": "Legion Commander", "currentHP": 400, "maxHP": 400, "atk": 20, "EXP": 60, "gold": 75}
     list_of_post_lvl_10_mobs = [imp, commander]
     return list_of_post_lvl_10_mobs
+
+
+def make_beginner_shop():
+    pill_of_vitality = {"name": "Pill of Vitality", "price": 50, "added_HP": 30,
+                        "amount": 1, "effect": "Increases maxHP by 30 points"}
+    elixer_of_vigor = {"name": "Elixer of Vigor", "price": 65, "added_ATK": 10, 
+                       "move_upgrade": "Arcane Barrage", "amount": 1,
+                       "effect": "Increases ATK by 10 points"}
+    forbidden_powder = {"name": "Forbidden White Powder", "price": 40, "added_EXP": 100, 
+                       "amount": 2, "effect": "Increases currentEXP by 100 points"}
+    list_of_items = [pill_of_vitality, elixer_of_vigor, forbidden_powder]
+    return list_of_items
