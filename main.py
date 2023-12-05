@@ -1,50 +1,8 @@
 # This is a sample Python script.
-from helper_functions.character_module import make_character, is_alive
+from helper_functions.character_module import is_alive, check_exp
 from helper_functions.movement_module import get_user_choice, validate_move, move_character
 from helper_functions.display_for_users import print_board, describe_current_location
-
-
-def make_board():
-    """
-    Create a game board using the rows and columns parameters.
-
-    A teXt-base game board requires a number of rows and columns to create a virtual board where the players can
-    move through. Each coordinate is denoted such as: (0,1), indicating the X position with the first number, and the
-    y position with the second number. Each room has a description of one of "Empty room", "Ominous Hallway",
-    "Room of Skulls", "Altar of Magic", which describe the type of room the player is in.
-
-    :postcondition: create a game board according to ASCII art minimap in list form
-    :return: a dictionary with tuples as the keys, and strings as values
-
-    """
-    map_of_board = ["XXXXXXXXXXXXXXXXXXXXX",
-                    "XXXXXXXXXXXXXXXXXXXXX",
-                    "X*****MCX B XCM*****X",
-                    "X******X     X******X",
-                    "X*****X       X*****X",
-                    "X****X         X****X",
-                    "X***XXXXXXKXXXXXX***X",
-                    "X                  ZX",
-                    "X********* ********HX",
-                    "XXXXXXXXXX XXXXXXXXXX",
-                    "XXXXXXXXXX/XXXXXXXXXX",
-                    "XH   ^   S         HX",
-                    "X   ^ ^         ^   X",
-                    "X^^X^^X^    ^ ^  ^  X",
-                    "X ^^^^^^            X",
-                    "X^XXXTXX    ^ ^     X",
-                    "X ^^^XX^         ^  X",
-                    "X ^^^^^^     ^      X",
-                    "X^  ^ ^           ^ X",
-                    "X  ^  ^             X",
-                    "XXXXXXXXXX XXXXXXXXXX"]
-
-    map_dict = {}
-    for x, row in enumerate(map_of_board):
-        for y, char in enumerate(row):
-            map_dict[(y, x)] = char
-    print(map_dict)
-    return map_dict
+from helper_functions.create_entity import make_character, make_board, make_imp, make_legion_commander, make_legion_soldier, make_mutant_boar
 
 
 def main():

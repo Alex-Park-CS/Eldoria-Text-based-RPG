@@ -3,13 +3,24 @@ import random
 
 # def event_handler(board, )
 
+def check_exp(character):
+    if character["currentEXP"] >= character["maxEXP"]:
+        character["level"] += 1
+        character["currentEXP"] -= character["maxEXP"]
+        character["maxEXP"] *= 1.2
+        character["currentHP"] *= 1.2
+        character["maxHP"] *= 1.2
+        character["atk"] *= 1.5
+        print("You have leveled up!")
+
+
 def combat(character, enemy):
     print(f"You have encountered a wild {enemy['name']}!!")
     while character["currentHP"] > 0 and enemy["currentHP"] > 0:
         print(f"Current Status->   Your HP: {character['currentHP']} / {character['maxHP']}   ", end="")
         print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
-        user_choice = input('Enter "a" to attack or "r" to run away: ')
-        if user_choice == 'a':
+        user_choice = input('Enter "x" to attack or "z" to run away: ')
+        if user_choice == 'x':
             user_roll = random.randint(1, 12)
             print(f"You rolled the die of fate... to roll {user_roll}!\n")
             damage = character["atk"] * user_roll
@@ -25,7 +36,7 @@ def combat(character, enemy):
                 character["currentEXP"] += enemy["EXP"]
                 print(f"You earned {enemy['gold']} gold! You now have {character['gold']} gold.")
                 print(f"You earned {enemy['EXP']} XP! You now have {character['currentEXP']}/{character['maxEXP']} XP.")
-        elif user_choice == 'r':
+        elif user_choice == 'z':
             print("You run away, shrieking like a little girl. To think that the fate of "
                   "this world lies on the likes of you...")
             break
