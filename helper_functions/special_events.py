@@ -1,7 +1,7 @@
 import random
 import math
 from helper_functions.create_entity import make_pre_lv_10_field_mobs, make_post_lv_10_field_mobs
-from helper_functions.display_for_users import print_board
+from helper_functions.display_for_users import print_board, slow_print
 
 
 def determine_event(board, character, shop):

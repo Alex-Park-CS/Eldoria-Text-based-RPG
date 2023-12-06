@@ -37,7 +37,6 @@ def make_board():
     for x, row in enumerate(map_of_board):
         for y, char in enumerate(row):
             map_dict[(y, x)] = char
-    print(map_dict)
     return map_dict
 
 

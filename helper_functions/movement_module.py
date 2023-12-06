@@ -86,8 +86,9 @@ def move_character(character, user_direction):
 
 
 def main():
-    user_direction = "w"
-    character = {"x-position": 5, "y-position": 5}
+    # user_direction = "w"
+    # character = {"x-position": 5, "y-position": 5}
+    print("hello")
 
 
 if __name__ == "__main__":
