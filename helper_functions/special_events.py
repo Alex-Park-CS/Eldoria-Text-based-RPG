@@ -81,6 +81,19 @@ def check_if_lvl_10(character, board):
     :precondition board: a dictionary with tuples as keys and strings as values
     :postcondition: checks if the character is level 10 or higher
 
+    >>> character = {"name": "Ysera", "maxHP": 100, "currentHP": 100, "gold": 100, "level": 1,
+    ...              "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
+    ...              "x-position": 10, "y-position": 20, "orb": 0}
+    >>> board = {(character["x-position"], character["y-position"]): '/'}
+    
+    >>> check_if_lvl_10(character, board)
+    Gatekeeper: You shall not pass!!! The roads ahead are too dangerous for
+    a low level peasant like you. Come back when you hit level 10.
+    You are pushed back roughly by the gatekeeper.
+    
+    >>> character["level"] = 10
+    >>> check_if_lvl_10(character, board)
+
     """
     if character["level"] < 10:
         slow_print("\nGatekeeper: You shall not pass!!! The roads ahead are too dangerous for \na low "
@@ -99,6 +112,21 @@ def check_for_orbs(character, board):
     :precondition character: a dictionary with strings as keys and values
     :precondition board: a dictionary with tuples as keys and strings as values
     :postcondition: checks if the character has 2 orbs to pass the gates
+
+    >>> character = {"name": "Ysera", "maxHP": 100, "currentHP": 100, "gold": 100, "level": 1,
+    ...              "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
+    ...              "x-position": 10, "y-position": 20, "orb": 0}
+    >>> board = {(character["x-position"], character["y-position"]): '-'}
+    
+    >>> check_for_orbs(character, board)
+    The two massive doors are sealed shut, and you see two divots in the shape of a sphere.
+    You are pushed back roughly by an unknown force.
+    
+    >>> character["orb"] = 2
+    >>> check_for_orbs(character, board)
+    The two orbs in your inventory fly out and fit right into the divots of the door.
+    The door slowly creaks open, to uncover a long corridor...
+
     """
     if character["orb"] < 2:
         slow_print("\nThe two massive doors are sealed shut, and you see two divots in the shape of a sphere.\n "
@@ -146,6 +174,18 @@ def check_exp(character):
     If it is, change stats accordingly. Nothing happens otherwise.
 
     :param character: a dictionary
+    :precondition character: a dictionary of character
+    :postcondition: level up the character and increase stats 
+
+    >>> character = {"name": "Ysera", "maxHP": 100, "currentHP": 100, "gold": 100, "level": 1,
+    ...              "maxEXP": 50, "currentEXP": 65, "atk": 5, "move": "Magic Missile",
+    ...              "x-position": 10, "y-position": 20, "orb": 0}
+
+    >>> check_exp(character)
+    >>> character
+    {"name": "Ysera", "maxHP": 110, "currentHP": 110, "gold": 100, "level": 2,
+    ...              "maxEXP": 55, "currentEXP": 15, "atk": 6, "move": "Magic Missile",
+    ...              "x-position": 10, "y-position": 20, "orb": 0}
     """
     while character["currentEXP"] >= character["maxEXP"]:
         character["level"] += 1
@@ -167,6 +207,14 @@ def healing_altar(character):
     :param character: a dictionary
     :precondition character: a dictionary with strings as keys and values
     :postcondition: heals the character to full HP
+
+    >>> character = {"name": "Ysera", "maxHP": 100, "currentHP": 50, "gold": 100, "level": 1,
+    ...              "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
+    ...              "x-position": 10, "y-position": 20, "orb": 0}
+    >>> healing_altar(character)
+    You are at the healing altar. Heal yourself to full.
+    You now have 100 / 100 HP.
+    
     """
     character["currentHP"] = character["maxHP"]
     slow_print("\nYou are at the healing altar. Heal yourself to full.\n"
