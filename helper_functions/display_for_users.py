@@ -11,18 +11,17 @@ def print_board(board, character):
     :precondition character: a dictionary that represents the character
     :postcondition: print the minimap of the game board
 
-    >>> board = {(0, 0): 'X', (0, 1): ' ', (0, 2): 'X',
-                 (1, 0): 'X', (1, 1): 'X', (1, 2): 'X',
-                 (2, 0): 'X', (2, 1): ' ', (2, 2): 'X'}
-    >>> character = {'x-position': 1, 'y-position': 1}
-    >>> print_board(board, character)
-    X X
-    XOX
-    X X
+    >>> board_test = {(0, 0): 'X', (0, 1): '*', (1, 0): 'X', (1, 1): '*'}
+    >>> character_test = {'x-position': 1, 'y-position': 1}
+    >>> print_board(board_test, character_test)
+    XX
+    *O
     """
+    max_row = max(coord[0] for coord in board.keys())
+    max_col = max(coord[1] for coord in board.keys())
 
-    for col in range(21):
-        for row in range(21):
+    for col in range(max_row + 1):
+        for row in range(max_col + 1):
             if (character["x-position"], character["y-position"]) == (row, col):
                 print("O", end='')
             else:
@@ -89,14 +88,16 @@ def print_character_stats(character):
     :precondition character: a dictionary that represents the character
     :postcondition: print the character's stats
     
-    >>> character = {'level': 1, 'maxHP': 10, 'currentHP': 10, 'atk': 1, 'gold': 0, 'currentEXP': 0, 'maxEXP': 10}
-    >>> print_character_stats(character)
+    >>> char_stats = {'level': 1, 'maxHP': 10, 'currentHP': 10, 'atk': 1, 'gold': 0, 'currentEXP': 0, 'maxEXP': 10}
+    >>> print_character_stats(char_stats)
+    <BLANKLINE>
     ------Current Stats------
     Your Level: 1
     Your HP: 10 / 10
     Your ATK: 1
     Your gold: 0
     Your EXP: 0 / 10 XP.
+    <BLANKLINE>
     """
     slow_print(f"\n------Current Stats------\n"
                f"Your Level: {character['level']}\n"
