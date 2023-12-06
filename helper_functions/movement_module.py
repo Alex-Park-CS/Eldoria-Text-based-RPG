@@ -42,9 +42,9 @@ def validate_move(board, character, user_direction):
     ...               (1, 0): ' ', (1, 1): 'X', (1, 2): 'X', (1, 3): 'X',
     ...               (2, 0): 'X', (2, 1): 'X', (2, 2): ' ', (2, 3): 'X',}
     >>> validate_move(board_test, character_test, 'w')
-    True
-    >>> validate_move(board_test, character_test, 'a')
     False
+    >>> validate_move(board_test, character_test, 'a')
+    True
     """
 
     if user_direction == 'w':
