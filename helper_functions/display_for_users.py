@@ -1,4 +1,5 @@
 import time
+from helper_functions.create_entity import make_character
 
 
 def print_board(board, character):
@@ -107,5 +108,10 @@ def print_character_stats(character):
                f"Your EXP: {character['currentEXP']} / {character['maxEXP']} XP.\n")
 
 
+def main():
+    character = make_character()
+    print_character_stats(character)
 
 
+if __name__ == "__main__":
+    main()
