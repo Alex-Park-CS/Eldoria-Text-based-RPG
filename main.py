@@ -13,17 +13,19 @@ def main():
     print_board(board, character)
     print(character)
     describe_current_location(board, character)
-    print(describe_current_location(board, character), character['x-position'], ",", character['y-position'])
     while is_alive(character):
         direction = get_user_choice()
         valid_move = validate_move(board, character, direction)
         if valid_move:
             move_character(character, direction)
+            print_board(board, character)
             describe_current_location(board, character)
             determine_event(board, character, shop)
         else:
             print("You cannot go there. Try again.")
-        print_board(board, character)
+
+    if(character["currentHP"]) <= 0:
+        print("You died... The world falls to the hands of Baal, the new supreme leader of the world! All hail Baal!!")
 
 
 if __name__ == '__main__':

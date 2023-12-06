@@ -18,7 +18,7 @@ def make_board():
                     "X*****X       X*****X",
                     "X****X         X****X",
                     "X***XXXXXX-XXXXXX***X",
-                    "X                  ZX",
+                    "X                   X",
                     "X********* ********HX",
                     "XXXXXXXXXX XXXXXXXXXX",
                     "XXXXXXXXXX/XXXXXXXXXX",
