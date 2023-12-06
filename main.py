@@ -3,7 +3,6 @@ from helper_functions.character_module import is_alive
 from helper_functions.movement_module import get_user_choice, validate_move, move_character
 from helper_functions.display_for_users import (
     print_board,
-    describe_current_location,
     intro_prompt,
     slow_print,
     print_character_stats)
@@ -25,7 +24,6 @@ def main():
         if valid_move:
             move_character(character, direction)
             print_board(board, character)
-            describe_current_location(board, character)
             determine_event(board, character, shop, boss)
         else:
             print("You cannot go there. Try again.")
