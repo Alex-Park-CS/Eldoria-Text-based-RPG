@@ -28,7 +28,7 @@ def print_board(board, character):
             else:
                 print(board[row, col], end='')
         print()
-
+    print()
 
 def intro_prompt():
     prompt = (
@@ -111,6 +111,10 @@ def print_character_stats(character):
 def main():
     character = make_character()
     print_character_stats(character)
+
+    board_test = {(0, 0): 'X', (0, 1): '*', (1, 0): 'X', (1, 1): '*'}
+    character_test = {'x-position': 1, 'y-position': 1}
+    print_board(board_test, character_test)
 
 
 if __name__ == "__main__":
