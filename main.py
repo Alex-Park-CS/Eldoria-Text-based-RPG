@@ -5,6 +5,7 @@ from helper_functions.display_for_users import print_board, describe_current_loc
 from helper_functions.create_entity import make_character, make_board, make_beginner_shop
 from helper_functions.special_events import determine_event, shop_event
 
+
 def main():
     board = make_board()
     character = make_character()
@@ -12,8 +13,8 @@ def main():
     print_board(board, character)
     print(character)
     describe_current_location(board, character)
+    print(describe_current_location(board, character), character['x-position'], ",", character['y-position'])
     while is_alive(character):
-        print(describe_current_location(board, character), character['x-position'], ",", character['y-position'])
         direction = get_user_choice()
         valid_move = validate_move(board, character, direction)
         if valid_move:

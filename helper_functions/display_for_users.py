@@ -21,7 +21,7 @@ def print_board(board, character):
     for col in range(21):
         for row in range(21):
             if (character["x-position"], character["y-position"]) == (row, col):
-                print("O", end=' ')
+                print("O", end='')
             else:
-                print(board[row, col], end=' ')
+                print(board[row, col], end='')
         print()
