@@ -45,7 +45,7 @@ def determine_event(board, character, shop, boss):
     elif current_position == 'M':
         combat_marbas(character, make_marbas())
     elif current_position == 'B':
-        combat_baal(character, board, boss)
+        combat_baal(character, boss)
         if boss["currentHP"] <= 0:
             slow_print(f"Baal: Arggh...AGGHHH...AHHHHHHHHHHHH!!! IT CAN'T BE!!! I WAS THE CHOSEN ONE!!! "
                        f"I WAS SUPPOSED TO BRING BALANCE TO THE WORLD!!! AAAAARRRRGGGGHHHHHH!!!!!!!!!!")
@@ -91,6 +91,15 @@ def check_if_lvl_10(character, board):
 
 
 def check_for_orbs(character, board):
+    """
+    Check if the character has 2 orbs to pass the gates
+    
+    :param character: a dictionary
+    :param board: a dictionary
+    :precondition character: a dictionary with strings as keys and values
+    :precondition board: a dictionary with tuples as keys and strings as values
+    :postcondition: checks if the character has 2 orbs to pass the gates
+    """
     if character["orb"] < 2:
         slow_print("\nThe two massive doors are sealed shut, and you see two divots in the shape of a sphere.\n "
                    "You are pushed back roughly by an unknown force.\n")
@@ -211,6 +220,15 @@ def combat(character, enemy):
 
 
 def combat_andromalius(character, board):
+    """
+    Trigger a combat event with Andromalius
+    
+    :param character: a dictionary
+    :param board: a dictionary
+    :precondition character: a dictionary with strings as keys and values
+    :precondition board: a dictionary with tuples as keys and strings as values
+    :postcondition: triggers a combat event with Andromalius
+    """
     slow_print("Each breath you take seems to pierce your lungs...", delay=0.1)
     slow_print("A demon in the figure of a man holding a serpent staff walks out of thin air...!", delay=0.1)
     combat(character, make_andromalius())
@@ -220,6 +238,15 @@ def combat_andromalius(character, board):
 
 
 def combat_marbas(character, board):
+    """
+    Trigger a combat event with Marbas
+    
+    :param character: a dictionary
+    :param board: a dictionary
+    :precondition character: a dictionary with strings as keys and values
+    :precondition board: a dictionary with tuples as keys and strings as values
+    :postcondition: triggers a combat event with Marbas
+    """
     slow_print("Visible mist forms when you start breathing...", delay=0.1)
     slow_print("A hideous lich rises from the ground... ", delay=0.1)
     combat(character, make_marbas())
@@ -228,7 +255,17 @@ def combat_marbas(character, board):
     board[(character["x-position"], character["y-position"])] = '*'
 
 
-def combat_baal(character, board, boss):
+def combat_baal(character, boss):
+    """
+    Trigger a combat event with Baal
+
+    :param character: a dictionary
+    :param boss: a dictionary
+    :precondition character: a dictionary with strings as keys and values
+    :precondition boss: a dictionary with strings as keys and values
+    :postcondition: triggers a combat event with Baal
+    
+    """
     slow_print("The stifling air exerts pressure onto your shoulders...", delay=0.1)
     slow_print("A figure rises up from the throne. \nThe air trembles in fear.", delay=0.1)
     slow_print("Baal: HAHAHAHA!!! Finally a worthy opponent!!! Let us celebrate this moment..."
