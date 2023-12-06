@@ -31,29 +31,29 @@ def chance_of_event(probability):
 
 def check_if_lvl_10(character, board):
     if character["level"] < 10:
-        print("\nGatekeeper: You shall not pass!!! The roads ahead are too dangerous for \na low "
+        slow_print("\nGatekeeper: You shall not pass!!! The roads ahead are too dangerous for \na low "
               "level peasant like you. Come back when you hit level 10.\n"
               "You are pushed back roughly by the gatekeeper.\n")
         character["y-position"] += 1
-        print_board(board, character)
+        slow_print_board(board, character)
 
 
 def treasure_event(character, board):
     mystery_potion = random.randint(1, 10)
-    print("\nCongratulations! You have found a treasure box!")
-    print("You open the chest to find a small vial with luscious purple liquid sloshing around.\n")
+    slow_print("\nCongratulations! You have found a treasure box!")
+    slow_print("You open the chest to find a small vial with luscious purple liquid sloshing around.\n")
     user_input = input("Drink this liquid? Enter 'y' to drink, 'n' to throw away: \n").lower().strip()
     if user_input == 'y':
         if mystery_potion <= 3:
-            print("It was actually something good! Gain 10 maxHP!")
+            slow_print("It was actually something good! Gain 10 maxHP!")
             character["maxHP"] += 10
             character["currentHP"] += 10
-            print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
+            slow_print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
         elif mystery_potion > 3:
-            print("Why are you drinking random shit off the ground? You deserve this. Lose 10 maxHP.")
+            slow_print("Why are you drinking random shit off the ground? You deserve this. Lose 10 maxHP.")
             character["maxHP"] -= 10
             character["currentHP"] -= 10
-            print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
+            slow_print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
     # remove treasure event after event finishes
     board[(character["x-position"], character["y-position"])] = '^'
 
@@ -66,108 +66,109 @@ def check_exp(character):
         character["currentHP"] = int(character["currentHP"] * 1.1)
         character["maxHP"] = int(character["maxHP"] * 1.1)
         character["atk"] = int(math.ceil(character["atk"] * 1.1))
-        print(f"You have leveled up! You are now level {character['level']}. "
+        slow_print(f"You have leveled up! You are now level {character['level']}. "
               f"You feel stronger, as the aura around you settles down.")
-        print(f"Your new stats --- HP: {character['currentHP']} / {character['maxHP']} --- "
+        slow_print(f"Your new stats --- HP: {character['currentHP']} / {character['maxHP']} --- "
               f"ATK: {character['atk']} --- EXP: {character['currentEXP']} / {character['maxEXP']}")
 
 
 def healing_altar(character):
     character["currentHP"] = character["maxHP"]
-    print("\nYou are at the healing altar. Heal yourself to full.\n"
+    slow_print("\nYou are at the healing altar. Heal yourself to full.\n"
           f"You now have {character['currentHP']} / {character['maxHP']} HP. \n")
 
 
 def combat(character, enemy):
-    print(f"\nYou have encountered a wild {enemy['name']}!!")
+    slow_print(f"\nYou have encountered a wild {enemy['name']}!!")
     while character["currentHP"] > 0 and enemy["currentHP"] > 0:
-        print(f"Current Status->   Your HP: {character['currentHP']} / {character['maxHP']}   ", end="")
-        print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
+        slow_print(f"Current Status: ")
+        slow_print(f"Your HP: {character['currentHP']} / {character['maxHP']}")
+        slow_print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
         user_choice = input('Enter "x" to attack or "z" to run away: ')
         if user_choice == 'x':
             user_roll = random.randint(1, 12)
-            print(f"You rolled the die of fate... to roll {user_roll}!\n")
+            slow_print(f"You rolled the die of fate... to roll {user_roll}!\n")
             damage = character["atk"] * user_roll
             enemy["currentHP"] -= damage
-            print(f"You used {character['move']}!")
-            print(f"You dealt {damage} damage to {enemy['name']}!")
-            print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
+            slow_print(f"You used {character['move']}!")
+            slow_print(f"You dealt {damage} damage to {enemy['name']}!")
+            slow_print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
             if enemy["currentHP"] > 0:
                 character["currentHP"] -= enemy["atk"]
-                print(f"{enemy['name']} attacked you for {enemy['atk']}.")
-                print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
+                slow_print(f"{enemy['name']} attacked you for {enemy['atk']}.")
+                slow_print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
             else:
                 character["gold"] += enemy["gold"]
                 character["currentEXP"] += enemy["EXP"]
-                print(f"You earned {enemy['gold']} gold! You now have {character['gold']} gold.")
-                print(f"You earned {enemy['EXP']} XP! You now have "
+                slow_print(f"You earned {enemy['gold']} gold! You now have {character['gold']} gold.")
+                slow_print(f"You earned {enemy['EXP']} XP! You now have "
                       f"{character['currentEXP']}/{character['maxEXP']} XP.\n\n")
                 check_exp(character)
         elif user_choice == 'z':
             if enemy["runnable"]:
-                print("You run away, shrieking like a little girl. To think that the fate of "
+                slow_print("You run away, shrieking like a little girl. To think that the fate of "
                       "this world lies on the likes of you...\n")
                 break
             else:
-                print(f"\n{enemy['name']}: You cannot run, you cannot hide... I AM INEVITABLE!!!")
-                print("You cannot run from a boss fight. Just die in battle.\n")
+                slow_print(f"\n{enemy['name']}: You cannot run, you cannot hide... I AM INEVITABLE!!!")
+                slow_print("You cannot run from a boss fight. Just die in battle.\n")
 
 
 def shop_event(character, shop):
-    print("Welcome, hero. I have travelled thousands of miles to be of assistance."
+    slow_print("Welcome, hero. I have travelled thousands of miles to be of assistance."
           "Here are the items that I have managed to bring for you."
           "But they aren't free. I still have to feed my family you know?\n")
     for index, item in enumerate(shop, start=1):
-        print(f"{index}. Item name: {item['name']}, Price: {item['price']} gold, {item['effect']}")
+        slow_print(f"{index}. Item name: {item['name']}, Price: {item['price']} gold, {item['effect']}")
 
-    print(f"\nYou currently have {character['gold']} gold.\n")
+    slow_print(f"\nYou currently have {character['gold']} gold.\n")
     while True:
         user_input = input("Enter the number of the item you wish to buy, or 'q' to quit: ")
         if user_input == '1':
             if shop[0]["amount"] <= 0:
-                print("Sorry, you already bought out those items.")
+                slow_print("Sorry, you already bought out those items.")
             elif shop[0]["price"] > character["gold"]:
-                print("Come back with enough gold you swine!!! Nothing is free in my town!!!")
+                slow_print("Come back with enough gold you swine!!! Nothing is free in my town!!!")
             else:
                 character["gold"] -= shop[0]["price"]
                 shop[0]["amount"] -= 1
                 character["currentHP"] += shop[0]["added_HP"]
                 character["maxHP"] += shop[0]["added_HP"]
-                print(f"You have purchased the {shop[0]['name']}.")
-                print(f"Your HP is now {character['currentHP']} / {character['maxHP']}.")
-                print(f"You now have {character['gold']} gold.")
+                slow_print(f"You have purchased the {shop[0]['name']}.")
+                slow_print(f"Your HP is now {character['currentHP']} / {character['maxHP']}.")
+                slow_print(f"You now have {character['gold']} gold.")
         elif user_input == '2':
             if shop[1]["amount"] <= 0:
-                print("Sorry, you already bought out those items.")
+                slow_print("Sorry, you already bought out those items.")
             elif shop[1]["price"] > character["gold"]:
-                print("Come back with enough gold you swine!!! Nothing is free in my town!!!")
+                slow_print("Come back with enough gold you swine!!! Nothing is free in my town!!!")
             else:
                 character["gold"] -= shop[1]["price"]
                 shop[1]["amount"] -= 1
                 character["atk"] += shop[1]["added_ATK"]
                 character["move"] = shop[1]["move_upgrade"]
-                print(f"You have purchased the {shop[1]['name']}.")
-                print(f"Your ATK is now {character['atk']}.")
-                print(f"You now attack with {character['move']}.")
-                print(f"You now have {character['gold']} gold.")
+                slow_print(f"You have purchased the {shop[1]['name']}.")
+                slow_print(f"Your ATK is now {character['atk']}.")
+                slow_print(f"You now attack with {character['move']}.")
+                slow_print(f"You now have {character['gold']} gold.")
         elif user_input == '3':
             if shop[2]["amount"] <= 0:
-                print("Sorry, you already bought out those items.")
+                slow_print("Sorry, you already bought out those items.")
             elif shop[2]["price"] > character["gold"]:
-                print("Come back with enough gold you swine!!! Nothing is free in my town!!!")
+                slow_print("Come back with enough gold you swine!!! Nothing is free in my town!!!")
             else:
                 character["gold"] -= shop[2]["price"]
                 shop[2]["amount"] -= 1
                 character["currentEXP"] += shop[2]["added_EXP"]
-                print(f"You have purchased the {shop[2]['name']}.")
+                slow_print(f"You have purchased the {shop[2]['name']}.")
                 check_exp(character)
-                print(f"Your ATK is now {character['atk']}.")
-                print(f"You now have {character['gold']} gold.")
+                slow_print(f"Your ATK is now {character['atk']}.")
+                slow_print(f"You now have {character['gold']} gold.")
         elif user_input == 'q':
-            print("Thank you for your patronage.")
+            slow_print("Thank you for your patronage.")
             break
         else:
-            print("We don't sell anything like that... choose something else.")
+            slow_print("We don't sell anything like that... choose something else.")
 
 
 def main():
@@ -175,11 +176,11 @@ def main():
     character = {"name": "BoB", "maxHP": 100, "gold": 0, "level": 1,
                  "currentHP": 100, "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
                  "x-position": 10, "y-position": 20, "model": "O"}
-    print(character)
+    slow_print(character)
 
     combat(character, mob)
 
-    print(character)
+    slow_print(character)
 
 
 if __name__ == "__main__":
