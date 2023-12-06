@@ -76,10 +76,15 @@ def move_character(character, user_direction):
     :precondition integer: a string with a direction that is accessible
     :postcondition: change the character's position according to the user given direction
 
-    # >>> character_test = {"x-position": 0, "y-position": 0, "HP" 5}
-    # >>> user_direction_test = 3
-    # >>> move_character(character_test, user_direction_test)
-
+    >>> character = {"name": "Ysera", "maxHP": 100, "currentHP": 100, "gold": 100, "level": 1,
+    ...              "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
+    ...              "x-position": 10, "y-position": 20, "orb": 0}
+    >>> move_character(character, 'w')
+    >>> character["y-position"]
+    19
+    >>> move_character(character, 'a')
+    >>> character["x-position"]
+    9
     """
     if user_direction == 'w':
         character["y-position"] -= 1
@@ -93,7 +98,7 @@ def move_character(character, user_direction):
 
 def main():
     # user_direction = "w"
-    # character = {"x-position": 5, "y-position": 5}
+    # character = {"x-position": 5, "y-position": 5}tilte
     print("hello")
 
 
