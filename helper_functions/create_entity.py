@@ -31,7 +31,7 @@ def make_board():
                     "X ^^^^^^     ^      X",
                     "X^  ^ ^           ^ X",
                     "X  ^  ^             X",
-                    "XXXXXXXXXX XXXXXXXXXX"]
+                    "XXXXXXXXX   XXXXXXXXX"]
 
     map_dict = {}
     for x, row in enumerate(map_of_board):
@@ -42,9 +42,9 @@ def make_board():
 
 
 def make_character():
-    character = {"name": "BoB", "maxHP": 100, "gold": 300, "level": 1,
-                 "currentHP": 100, "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
-                 "x-position": 10, "y-position": 20}
+    character = {"name": "BoB", "maxHP": 100, "currentHP": 10, "gold": 300, "level": 1,
+                 "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
+                 "x-position": 10, "y-position": 20, "souls": 0}
     return character
 
 
@@ -65,10 +65,10 @@ def make_post_lv_10_field_mobs():
 def make_beginner_shop():
     pill_of_vitality = {"name": "Pill of Vitality", "price": 50, "added_HP": 30,
                         "amount": 1, "effect": "Increases maxHP by 30 points"}
-    elixer_of_vigor = {"name": "Elixer of Vigor", "price": 65, "added_ATK": 10, 
+    elixir_of_vigor = {"name": "Elixer of Vigor", "price": 65, "added_ATK": 10,
                        "move_upgrade": "Arcane Barrage", "amount": 1,
                        "effect": "Increases ATK by 10 points"}
     forbidden_powder = {"name": "Forbidden White Powder", "price": 40, "added_EXP": 100, 
-                       "amount": 2, "effect": "Increases currentEXP by 100 points"}
-    list_of_items = [pill_of_vitality, elixer_of_vigor, forbidden_powder]
+                        "amount": 2, "effect": "Increases currentEXP by 100 points"}
+    list_of_items = [pill_of_vitality, elixir_of_vigor, forbidden_powder]
     return list_of_items
