@@ -18,7 +18,7 @@ def get_user_choice():
         if user_direction in list_choice:
             return user_direction
         else:
-            raise ValueError("Invalid input. This input is not within the choices.")
+            raise ValueError("Invalid input. This input is not within the choices.\n")
             
 
 def validate_move(board, character, user_direction):
