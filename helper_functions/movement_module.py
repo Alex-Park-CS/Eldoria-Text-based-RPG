@@ -35,6 +35,10 @@ def validate_move(board, character, user_direction):
     :postcondition: validate if the character can go to the desired direction
     :return: boolean value
 
+    >>> character_test = {"name": "Ysera", "maxHP": 100, "currentHP": 100, "gold": 100, "level": 1,
+    ...              "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
+    ...              "x-position": 10, "y-position": 15, "orb": 0}
+
     """
 
     if user_direction == 'w':
