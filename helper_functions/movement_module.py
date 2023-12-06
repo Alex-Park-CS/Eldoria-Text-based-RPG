@@ -18,7 +18,7 @@ def get_user_choice():
         if user_direction in list_choice:
             return user_direction
         else:
-            print("Read instructions again...")
+            raise ValueError("Invalid input. This input is not within the choices.")
             
 
 def validate_move(board, character, user_direction):
@@ -63,6 +63,8 @@ def validate_move(board, character, user_direction):
             return False
     elif user_direction == 'k':
         print_character_stats(character)
+        return False
+    else:
         return False
 
 

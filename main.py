@@ -19,7 +19,11 @@ def main():
     print_board(board, character)
     print_character_stats(character)
     while is_alive(character) and boss["currentHP"] > 0:
-        direction = get_user_choice()
+        try:
+            direction = get_user_choice()
+        except ValueError as e:
+            print(e)
+            continue
         valid_move = validate_move(board, character, direction)
         if valid_move:
             move_character(character, direction)
