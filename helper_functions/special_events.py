@@ -5,6 +5,19 @@ from helper_functions.display_for_users import print_board, slow_print
 
 
 def determine_event(board, character, shop):
+    """
+    Determine what event is triggered based on the character's current position
+
+    :param board: a dictionary with tuples as keys and strings as values
+    :param character: a dictionary with strings as keys and values
+    :param shop: a list of dictionaries
+    :precondition board: a dictionary with tuples as keys and strings as values
+    :precondition character: a dictionary with strings as keys and values
+    :precondition shop: a list of dictionaries
+    :postcondition: determines what event is triggered based on the character's current position
+    :return: None
+
+    """
     current_position = board[(character["x-position"], character["y-position"])]
     if current_position == '^' and chance_of_event(0.40):
         combat(character, make_pre_lv_10_field_mobs()[random.randint(0, 1)])
@@ -21,6 +34,15 @@ def determine_event(board, character, shop):
 
 
 def chance_of_event(probability):
+    """
+    Determine if an event will occur based on the probability
+    
+    :param probability: a float
+    :precondition probability: a float between 0 and 1
+    :postcondition: determines if an event will occur based on the probability
+    :return: a boolean
+
+    """
     random_number = random.uniform(0, 1)
 
     if random_number <= probability:
@@ -30,15 +52,34 @@ def chance_of_event(probability):
 
 
 def check_if_lvl_10(character, board):
+    """
+    Check if the character is level 10 or higher
+    
+    :param character: a dictionary
+    :param board: a dictionary
+    :precondition character: a dictionary with strings as keys and values
+    :precondition board: a dictionary with tuples as keys and strings as values
+    :postcondition: checks if the character is level 10 or higher
+
+    """
     if character["level"] < 10:
         slow_print("\nGatekeeper: You shall not pass!!! The roads ahead are too dangerous for \na low "
               "level peasant like you. Come back when you hit level 10.\n"
               "You are pushed back roughly by the gatekeeper.\n")
         character["y-position"] += 1
-        slow_print_board(board, character)
+        print_board(board, character)
 
 
 def treasure_event(character, board):
+    """
+    Trigger a treasure event
+    
+    :param character: a dictionary
+    :param board: a dictionary
+    :precondition character: a dictionary with strings as keys and values
+    :precondition board: a dictionary with tuples as keys and strings as values
+    :postcondition: triggers a treasure event
+    """
     mystery_potion = random.randint(1, 10)
     slow_print("\nCongratulations! You have found a treasure box!")
     slow_print("You open the chest to find a small vial with luscious purple liquid sloshing around.\n")
@@ -59,6 +100,13 @@ def treasure_event(character, board):
 
 
 def check_exp(character):
+    """
+    Check if currentEXP is higher than or equal to maxEXP.
+
+    If it is, change stats accordingly. Nothing happens otherwise.
+
+    :param character: a dictionary
+    """
     if character["currentEXP"] >= character["maxEXP"]:
         character["level"] += 1
         character["currentEXP"] = int(character["currentEXP"] - character["maxEXP"])
@@ -73,12 +121,28 @@ def check_exp(character):
 
 
 def healing_altar(character):
+    """
+    Heal the character to full HP
+    
+    :param character: a dictionary
+    :precondition character: a dictionary with strings as keys and values
+    :postcondition: heals the character to full HP
+    """
     character["currentHP"] = character["maxHP"]
     slow_print("\nYou are at the healing altar. Heal yourself to full.\n"
           f"You now have {character['currentHP']} / {character['maxHP']} HP. \n")
 
 
 def combat(character, enemy):
+    """
+    Trigger a combat event
+    
+    :param character: a dictionary
+    :param enemy: a dictionary
+    :precondition character: a dictionary with strings as keys and values
+    :precondition enemy: a dictionary with strings as keys and values
+    :postcondition: triggers a combat event
+    """
     slow_print(f"\nYou have encountered a wild {enemy['name']}!!")
     while character["currentHP"] > 0 and enemy["currentHP"] > 0:
         slow_print(f"Current Status: ")
@@ -115,6 +179,15 @@ def combat(character, enemy):
 
 
 def shop_event(character, shop):
+    """
+    Trigger a shop event
+    
+    :param character: a dictionary
+    :param shop: a list of dictionaries
+    :precondition character: a dictionary with strings as keys and values
+    :precondition shop: a list of dictionaries
+    :postcondition: triggers a shop event
+    """
     slow_print("Welcome, hero. I have travelled thousands of miles to be of assistance."
           "Here are the items that I have managed to bring for you."
           "But they aren't free. I still have to feed my family you know?\n")
