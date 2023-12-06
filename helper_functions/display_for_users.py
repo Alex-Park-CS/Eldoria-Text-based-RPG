@@ -66,6 +66,13 @@ def slow_print(text, delay=0.007):
     print()  # Add a newline at the end
 
 
+def print_character_stats(character):
+    slow_print(f"\n------Current Stats------\n"
+               f"Your Level: {character['level']}\n"
+               f"Your HP: {character['currentHP']} / {character['maxHP']}\n"
+               f"Your ATK: {character['atk']}\n"
+               f"Your gold: {character['gold']}\n"
+               f"Your EXP: {character['currentEXP']} / {character['maxEXP']} XP.\n")
 
 
 

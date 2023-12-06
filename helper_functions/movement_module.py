@@ -1,3 +1,6 @@
+from helper_functions.display_for_users import print_character_stats
+
+
 def get_user_choice():
     """
     Get input direction from user in numbers.
@@ -10,8 +13,8 @@ def get_user_choice():
     list_choice = ('w', 'a', 's', 'd', 'Q')
     user_direction = '0'
     while user_direction not in list_choice:
-        user_direction = input("Enter a number for a direction from North(w), "
-                               "West(a), South(s), East(d), or 'Q' to quit: ").strip()
+        user_direction = input("Enter the desired direction from North(w), "
+                               "West(a), South(s), East(d), Stats(1), or 'Q' to quit: ").strip().lower()
         if user_direction in list_choice:
             return user_direction
         else:
@@ -58,6 +61,9 @@ def validate_move(board, character, user_direction):
             return True
         else:
             return False
+    elif user_direction == '1':
+        print_character_stats(character)
+        return False
 
 
 def move_character(character, user_direction):

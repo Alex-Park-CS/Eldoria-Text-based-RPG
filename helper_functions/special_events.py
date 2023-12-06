@@ -6,7 +6,6 @@ from helper_functions.create_entity import (
     make_post_lv_10_field_mobs,
     make_marbas,
     make_andromalius,
-    make_baal
 )
 
 
@@ -47,8 +46,12 @@ def determine_event(board, character, shop, boss):
         combat_marbas(character, make_marbas())
     elif current_position == 'B':
         combat_baal(character, board, boss)
-        slow_print(f"Baal: Arggh...AGGHHH...AHHHHHHHHHHHH!!! IT CAN'T BE!!! I WAS THE CHOSEN ONE!!! I WAS SUPPOSED TO"
-                   f"BRING BALANCE TO THE WORLD!!! AAAAARRRRGGGGHHHHHH!!!!!!!!!!")
+        if boss["currentHP"] <= 0:
+            slow_print(f"Baal: Arggh...AGGHHH...AHHHHHHHHHHHH!!! IT CAN'T BE!!! I WAS THE CHOSEN ONE!!! "
+                       f"I WAS SUPPOSED TO BRING BALANCE TO THE WORLD!!! AAAAARRRRGGGGHHHHHH!!!!!!!!!!")
+        else:
+            slow_print(f"Although I waited for a blood-heating battle for eons... I assume this is the limits of "
+                       f"your inferior race...Farewell, weakling.")
 
 
 def chance_of_event(probability):
@@ -179,7 +182,7 @@ def combat(character, enemy):
         user_choice = input('Enter "x" to attack or "z" to run away: ')
         if user_choice == 'x':
             user_roll = random.randint(1, 12)
-            slow_print(f"You rolled the die of fate... to roll {user_roll}!\n", 0.1)
+            slow_print(f"You rolled the die of fate... to roll {user_roll}!\n", 0.07)
             damage = character["atk"] * user_roll
             enemy["currentHP"] -= damage
             slow_print(f"You used {character['move']}!")
@@ -187,8 +190,8 @@ def combat(character, enemy):
             slow_print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
             if enemy["currentHP"] > 0:
                 character["currentHP"] -= enemy["atk"]
-                slow_print(f"{enemy['name']} uses {enemy['move']}!")
-                slow_print(f"{enemy['name']} attacked you for {enemy['atk']}.")
+                slow_print(f"{enemy['name']} uses {enemy['move']}!", delay=0.07)
+                slow_print(f"{enemy['name']} attacked you for {enemy['atk']}.", delay=0.07)
                 slow_print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
             else:
                 character["gold"] += enemy["gold"]
@@ -209,8 +212,8 @@ def combat(character, enemy):
 
 
 def combat_andromalius(character, board):
-    slow_print("Each breath you take seems to pierce your lungs...", delay=0.2)
-    slow_print("A demon in the figure of a man holding a serpent staff walks out of thin air...!")
+    slow_print("Each breath you take seems to pierce your lungs...", delay=0.1)
+    slow_print("A demon in the figure of a man holding a serpent staff walks out of thin air...!", delay=0.1)
     combat(character, make_andromalius())
     slow_print(f"You gained a red orb, containing Andromalius' soul. You have no idea what to do with it.")
     character["orb"] += 1
@@ -218,8 +221,8 @@ def combat_andromalius(character, board):
 
 
 def combat_marbas(character, board):
-    slow_print("Visible mist forms when you start breathing...", delay=0.2)
-    slow_print("A hideous lich rises from the ground... ", delay=0.2)
+    slow_print("Visible mist forms when you start breathing...", delay=0.1)
+    slow_print("A hideous lich rises from the ground... ", delay=0.1)
     combat(character, make_marbas())
     slow_print(f"You gained a blue orb, containing Marbas' soul. You have no idea what to do with it.")
     character["orb"] += 1
@@ -227,10 +230,10 @@ def combat_marbas(character, board):
 
 
 def combat_baal(character, board, boss):
-    slow_print("The stifling air exerts pressure onto your shoulders...", delay=0.2)
-    slow_print("A figure rises up from the throne. \nThe air trembles in fear.", delay=0.2)
+    slow_print("The stifling air exerts pressure onto your shoulders...", delay=0.1)
+    slow_print("A figure rises up from the throne. \nThe air trembles in fear.", delay=0.1)
     slow_print("Baal: HAHAHAHA!!! Finally a worthy opponent!!! Let us celebrate this moment..."
-               "\n WITH A DUEL TO THE DEATH!!!!!!!!!!", delay=0.1)
+               "\n WITH A DUEL TO THE DEATH!!!!!!!!!!", delay=0.08)
     combat(character, boss)
 
 

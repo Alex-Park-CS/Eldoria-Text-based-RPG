@@ -41,9 +41,9 @@ def make_board():
 
 
 def make_character():
-    character = {"name": "BoB", "maxHP": 100, "currentHP": 100, "gold": 100, "level": 1,
+    character = {"name": "Ysera", "maxHP": 100, "currentHP": 100, "gold": 100, "level": 1,
                  "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
-                 "x-position": 10, "y-position": 20, "orb": 0}
+                 "x-position": 10, "y-position": 4, "orb": 0}
     return character
 
 

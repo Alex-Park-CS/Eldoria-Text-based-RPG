@@ -1,7 +1,12 @@
 # This is a sample Python script.
 from helper_functions.character_module import is_alive
 from helper_functions.movement_module import get_user_choice, validate_move, move_character
-from helper_functions.display_for_users import print_board, describe_current_location, intro_prompt, slow_print
+from helper_functions.display_for_users import (
+    print_board,
+    describe_current_location,
+    intro_prompt,
+    slow_print,
+    print_character_stats)
 from helper_functions.create_entity import make_character, make_board, make_shop, make_baal
 from helper_functions.special_events import determine_event
 
@@ -11,10 +16,9 @@ def main():
     character = make_character()
     shop = make_shop()
     boss = make_baal()
-    slow_print(intro_prompt())
+    slow_print(intro_prompt(), delay=0.0001)
     print_board(board, character)
-    print(character)
-    describe_current_location(board, character)
+    print_character_stats(character)
     while is_alive(character) and boss["currentHP"] > 0:
         direction = get_user_choice()
         valid_move = validate_move(board, character, direction)
