@@ -10,11 +10,11 @@ def get_user_choice():
     :return: an integer
 
     """
-    list_choice = ('w', 'a', 's', 'd', 'k', 'Q')
+    list_choice = ('w', 'a', 's', 'd', 'k', 'q')
     user_direction = '0'
     while user_direction not in list_choice:
         user_direction = input("Enter the desired direction from North(w), "
-                               "West(a), South(s), East(d), Stats(k), or 'Q' to quit: ").strip().lower()
+                               "West(a), South(s), East(d), Stats(k), or 'q' to quit: ").strip().lower()
         if user_direction in list_choice:
             return user_direction
         else:
@@ -29,9 +29,9 @@ def validate_move(board, character, user_direction):
     :param board: a dictionary
     :param character: another dictionary
     :param user_direction: a string
-    :precondition board: a game board with row and columns >= 2
-    :precondition character: a character
-    :precondition user_direction: a string between and including 1 and 4
+    :precondition board: a game board dictionary
+    :precondition character: a character dictionary
+    :precondition user_direction: a string indicating the direction or special command(k, q)
     :postcondition: validate if the character can go to the desired direction
     :return: boolean value
 
@@ -78,14 +78,14 @@ def move_character(character, user_direction):
     :precondition integer: a string with a direction that is accessible
     :postcondition: change the character's position according to the user given direction
 
-    >>> character = {"name": "Ysera", "maxHP": 100, "currentHP": 100, "gold": 100, "level": 1,
+    >>> character_test = {"name": "Ysera", "maxHP": 100, "currentHP": 100, "gold": 100, "level": 1,
     ...              "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
     ...              "x-position": 10, "y-position": 20, "orb": 0}
-    >>> move_character(character, 'w')
-    >>> character["y-position"]
+    >>> move_character(character_test, 'w')
+    >>> character_test["y-position"]
     19
-    >>> move_character(character, 'a')
-    >>> character["x-position"]
+    >>> move_character(character_test, 'a')
+    >>> character_test["x-position"]
     9
     """
     if user_direction == 'w':
