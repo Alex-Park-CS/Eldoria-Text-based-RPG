@@ -10,11 +10,11 @@ def get_user_choice():
     :return: an integer
 
     """
-    list_choice = ('w', 'a', 's', 'd', 'Q')
+    list_choice = ('w', 'a', 's', 'd', 'k', 'Q')
     user_direction = '0'
     while user_direction not in list_choice:
         user_direction = input("Enter the desired direction from North(w), "
-                               "West(a), South(s), East(d), Stats(1), or 'Q' to quit: ").strip().lower()
+                               "West(a), South(s), East(d), Stats(k), or 'Q' to quit: ").strip().lower()
         if user_direction in list_choice:
             return user_direction
         else:
@@ -61,7 +61,7 @@ def validate_move(board, character, user_direction):
             return True
         else:
             return False
-    elif user_direction == '1':
+    elif user_direction == 'k':
         print_character_stats(character)
         return False
 

@@ -16,7 +16,7 @@ def main():
     character = make_character()
     shop = make_shop()
     boss = make_baal()
-    slow_print(intro_prompt(), delay=0.0001)
+    slow_print(intro_prompt(), delay=0.001)
     print_board(board, character)
     print_character_stats(character)
     while is_alive(character) and boss["currentHP"] > 0:

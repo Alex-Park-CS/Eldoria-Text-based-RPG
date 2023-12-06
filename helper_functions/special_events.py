@@ -182,16 +182,16 @@ def combat(character, enemy):
         user_choice = input('Enter "x" to attack or "z" to run away: ')
         if user_choice == 'x':
             user_roll = random.randint(1, 12)
-            slow_print(f"You rolled the die of fate... to roll {user_roll}!\n", 0.07)
+            slow_print(f"You rolled the die of fate... to roll {user_roll}!\n", 0.035)
             damage = character["atk"] * user_roll
             enemy["currentHP"] -= damage
-            slow_print(f"You used {character['move']}!")
-            slow_print(f"You dealt {damage} damage to {enemy['name']}!")
-            slow_print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
+            slow_print(f"You used {character['move']}!", delay=0.025)
+            slow_print(f"You dealt {damage} damage to {enemy['name']}!", delay=0.025)
+            slow_print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n", delay=0.025)
             if enemy["currentHP"] > 0:
                 character["currentHP"] -= enemy["atk"]
-                slow_print(f"{enemy['name']} uses {enemy['move']}!", delay=0.07)
-                slow_print(f"{enemy['name']} attacked you for {enemy['atk']}.", delay=0.07)
+                slow_print(f"{enemy['name']} uses {enemy['move']}!", delay=0.025)
+                slow_print(f"{enemy['name']} attacked you for {enemy['atk']}.", delay=0.025)
                 slow_print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
             else:
                 character["gold"] += enemy["gold"]
@@ -207,7 +207,6 @@ def combat(character, enemy):
                            "this world lies on the likes of you...\n")
                 break
             else:
-                slow_print(f"\n{enemy['name']}: You cannot run, you cannot hide... I AM INEVITABLE!!!")
                 slow_print("You cannot run from a boss fight. Just die in battle.\n")
 
 
