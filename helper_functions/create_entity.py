@@ -13,7 +13,7 @@ def make_board():
     """
     map_of_board = ["XXXXXXXXXXXXXXXXXXXXX",
                     "XXXXXXXXXXXXXXXXXXXXX",
-                    "X*****MCX B XCM*****X",
+                    "X*****AXX B XXM*****X",
                     "X******X     X******X",
                     "X*****X       X*****X",
                     "X****X         X****X",
@@ -41,30 +41,49 @@ def make_board():
 
 
 def make_character():
-    character = {"name": "BoB", "maxHP": 100, "currentHP": 100, "gold": 300, "level": 1,
+    character = {"name": "BoB", "maxHP": 100, "currentHP": 100, "gold": 100, "level": 1,
                  "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
-                 "x-position": 10, "y-position": 20, "souls": 0}
+                 "x-position": 10, "y-position": 20, "orb": 0}
     return character
 
 
 def make_pre_lv_10_field_mobs():
-    soldier = {"name": "Legion Soldier", "currentHP": 100, "maxHP": 100,
+    soldier = {"name": "Legion Soldier", "currentHP": 100, "maxHP": 100, "move": "Spear Thrust",
                "atk": 10, "EXP": 25, "gold": 20, "runnable": True}
-    mutant_boar = {"name": "Mutant Boar", "currentHP": 50, "maxHP": 50,
+    mutant_boar = {"name": "Mutant Boar", "currentHP": 50, "maxHP": 50, "move": "Headbutt",
                    "atk": 5, "EXP": 10, "gold": 5, "runnable": True}
     list_of_pre_lvl_10_mobs = [mutant_boar, soldier]
     return list_of_pre_lvl_10_mobs
 
 
 def make_post_lv_10_field_mobs():
-    imp = {"name": "Imp", "currentHP": 100, "maxHP": 100, "atk": 15, "EXP": 25, "gold": 20, "runnable": True}
+    imp = {"name": "Imp", "currentHP": 100, "maxHP": 100, "atk": 15, "EXP": 25,
+           "move": "Tail Whip", "gold": 20, "runnable": True}
     commander = {"name": "Legion Commander", "currentHP": 400, "maxHP": 400,
-                 "atk": 20, "EXP": 60, "gold": 75, "runnable": True}
+                 "move": "Sword Slash", "atk": 20, "EXP": 60, "gold": 75, "runnable": True}
     list_of_post_lvl_10_mobs = [imp, commander]
     return list_of_post_lvl_10_mobs
 
 
-def make_beginner_shop():
+def make_marbas():
+    boss = {"name": "Marbas", "currentHP": 800, "maxHP": 800, "atk": 40, "EXP": 1000, "gold": 300,
+            "move": "Tainting Hands", "runnable": False}
+    return boss
+
+
+def make_andromalius():
+    boss = {"name": "Andromalius", "currentHP": 900, "maxHP": 900, "atk": 35, "EXP": 1100, "gold": 350,
+            "move": "Serpent's Fang", "runnable": False}
+    return boss
+
+
+def make_baal():
+    boss = {"name": "Baal", "currentHP": 2000, "maxHP": 2000, "atk": 50, "EXP": 2000, "gold": 350,
+            "move": "Thunderstorm", "runnable": False}
+    return boss
+
+
+def make_shop():
     pill_of_vitality = {"name": "Pill of Vitality", "price": 50, "added_HP": 30,
                         "amount": 1, "effect": "Increases maxHP by 30 points"}
     elixir_of_vigor = {"name": "Elixer of Vigor", "price": 65, "added_ATK": 10,
