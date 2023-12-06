@@ -1,6 +1,7 @@
 import random
 import math
 from helper_functions.create_entity import make_pre_lv_10_field_mobs, make_post_lv_10_field_mobs
+from helper_functions.display_for_users import print_board
 
 
 def determine_event(board, character, shop):
@@ -11,7 +12,13 @@ def determine_event(board, character, shop):
         combat(character, make_post_lv_10_field_mobs()[random.randint(0, 1)])
     elif current_position == 'S':
         shop_event(character, shop)
-    
+    elif current_position == 'H':
+        healing_altar(character)
+    elif current_position == '/':
+        check_if_lvl_10(character, board)
+    elif current_position == 'T':
+        treasure_event(character, board)
+
 
 def chance_of_event(probability):
     random_number = random.uniform(0, 1)
@@ -20,6 +27,35 @@ def chance_of_event(probability):
         return True
     else:
         return False
+
+
+def check_if_lvl_10(character, board):
+    if character["level"] < 10:
+        print("\nGatekeeper: You shall not pass!!! The roads ahead are too dangerous for \na low "
+              "level peasant like you. Come back when you hit level 10.\n"
+              "You are pushed back roughly by the gatekeeper.\n")
+        character["y-position"] += 1
+        print_board(board, character)
+
+
+def treasure_event(character, board):
+    mystery_potion = random.randint(1, 10)
+    print("\nCongratulations! You have found a treasure box!")
+    print("You open the chest to find a small vial with luscious purple liquid sloshing around.\n")
+    user_input = input("Drink this liquid? Enter 'y' to drink, 'n' to throw away: \n").lower().strip()
+    if user_input == 'y':
+        if mystery_potion <= 3:
+            print("It was actually something good! Gain 10 maxHP!")
+            character["maxHP"] += 10
+            character["currentHP"] += 10
+            print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
+        elif mystery_potion > 3:
+            print("Why are you drinking random shit off the ground? You deserve this. Lose 10 maxHP.")
+            character["maxHP"] -= 10
+            character["currentHP"] -= 10
+            print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
+    # remove treasure event after event finishes
+    board[(character["x-position"], character["y-position"])] = '^'
 
 
 def check_exp(character):
@@ -34,6 +70,12 @@ def check_exp(character):
               f"You feel stronger, as the aura around you settles down.")
         print(f"Your new stats --- HP: {character['currentHP']} / {character['maxHP']} --- "
               f"ATK: {character['atk']} --- EXP: {character['currentEXP']} / {character['maxEXP']}")
+
+
+def healing_altar(character):
+    character["currentHP"] = character["maxHP"]
+    print("\nYou are at the healing altar. Heal yourself to full.\n"
+          f"You now have {character['currentHP']} / {character['maxHP']} HP. \n")
 
 
 def combat(character, enemy):
@@ -58,12 +100,17 @@ def combat(character, enemy):
                 character["gold"] += enemy["gold"]
                 character["currentEXP"] += enemy["EXP"]
                 print(f"You earned {enemy['gold']} gold! You now have {character['gold']} gold.")
-                print(f"You earned {enemy['EXP']} XP! You now have {character['currentEXP']}/{character['maxEXP']} XP.\n\n")
+                print(f"You earned {enemy['EXP']} XP! You now have "
+                      f"{character['currentEXP']}/{character['maxEXP']} XP.\n\n")
                 check_exp(character)
         elif user_choice == 'z':
-            print("You run away, shrieking like a little girl. To think that the fate of "
-                  "this world lies on the likes of you...\n")
-            break
+            if enemy["runnable"]:
+                print("You run away, shrieking like a little girl. To think that the fate of "
+                      "this world lies on the likes of you...\n")
+                break
+            else:
+                print(f"\n{enemy['name']}: You cannot run, you cannot hide... I AM INEVITABLE!!!")
+                print("You cannot run from a boss fight. Just die in battle.\n")
 
 
 def shop_event(character, shop):
