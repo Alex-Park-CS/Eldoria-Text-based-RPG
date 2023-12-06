@@ -37,8 +37,14 @@ def validate_move(board, character, user_direction):
 
     >>> character_test = {"name": "Ysera", "maxHP": 100, "currentHP": 100, "gold": 100, "level": 1,
     ...              "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
-    ...              "x-position": 10, "y-position": 15, "orb": 0}
-
+    ...              "x-position": 1, "y-position": 2, "orb": 0}
+    >>> board_test = {(0, 0): 'X', (0, 1): 'X', (0, 2): ' ', (0, 3): 'X',
+    ...               (1, 0): ' ', (1, 1): 'X', (1, 2): 'X', (1, 3): 'X',
+    ...               (2, 0): 'X', (2, 1): 'X', (2, 2): ' ', (2, 3): 'X',}
+    >>> validate_move(board_test, character_test, 'w')
+    True
+    >>> validate_move(board_test, character_test, 'a')
+    False
     """
 
     if user_direction == 'w':
