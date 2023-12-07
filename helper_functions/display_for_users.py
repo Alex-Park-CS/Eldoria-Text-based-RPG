@@ -30,6 +30,7 @@ def print_board(board, character):
         print()
     print()
 
+
 def intro_prompt():
     prompt = (
         "E   L   D   O   R   I   A\n\n"
