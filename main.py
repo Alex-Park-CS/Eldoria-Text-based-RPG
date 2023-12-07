@@ -31,7 +31,10 @@ def main():
         valid_move = validate_move(board, character, direction)
         if valid_move:
             move_character(character, direction)
-            determine_event(board, character, shop, boss)
+            try:
+                determine_event(board, character, shop, boss)
+            except ValueError as e:
+                print(e)
             print_board(board, character)
         else:
             print("You cannot go there. Try again.")

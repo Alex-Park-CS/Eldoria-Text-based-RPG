@@ -273,6 +273,8 @@ def combat(character, enemy):
                 break
             else:
                 slow_print("You cannot run from a boss fight. Just die in battle.\n")
+        else:
+            raise ValueError("Not a valid command! Choose from attack('x') or run('z').")
 
 
 def combat_andromalius(character, board):
