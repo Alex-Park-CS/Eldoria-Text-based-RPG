@@ -1,4 +1,3 @@
-# This is a sample Python script.
 from helper_functions.character_module import is_alive
 from helper_functions.movement_module import get_user_choice, validate_move, move_character
 from helper_functions.display_for_users import (
