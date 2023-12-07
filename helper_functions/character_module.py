@@ -1,3 +1,6 @@
+from helper_functions.create_entity import make_character
+
+
 def is_alive(character):
     """
     Checks if the character's HP is over 0
@@ -23,3 +26,13 @@ def is_alive(character):
         return True
     else:
         return False
+
+
+def main():
+    character = make_character()
+    life_check_character = is_alive(character)
+    print(life_check_character)
+
+
+if __name__ == "__main__":
+    main()
