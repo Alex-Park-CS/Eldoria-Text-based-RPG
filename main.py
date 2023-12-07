@@ -15,10 +15,11 @@ def main():
     character = make_character()
     shop = make_shop()
     boss = make_baal()
+    user_choice = ''
     slow_print(intro_prompt(), delay=0.001)
     print_board(board, character)
     print_character_stats(character)
-    while is_alive(character) and boss["currentHP"] > 0:
+    while is_alive(character) and boss["currentHP"] > 0 and user_choice != 'q':
         try:
             direction = get_user_choice()
         except ValueError as e:

@@ -7,7 +7,7 @@ def get_user_choice():
 
     The input will be integers which signify direction where 1 = North, 2 = West, 3 = South, 4 = East, q = Quit
     :postcondition: the user input direction in integer
-    :return: an integer
+    :return: a string
 
     """
     list_choice = ('w', 'a', 's', 'd', 'k', 'q')
