@@ -113,7 +113,9 @@ def main():
     character = make_character()
     print_character_stats(character)
 
-    board_test = {(0, 0): 'X', (0, 1): '*', (1, 0): 'X', (1, 1): '*'}
+    board_test = {(0, 0): "X", (1, 0): " ", (2, 0): "X",
+                  (0, 1): ' ', (1, 1): ' ', (2, 1): ' ',
+                  (0, 2): 'X', (1, 2): ' ', (2, 2): 'X'}
     character_test = {'x-position': 1, 'y-position': 1}
     print_board(board_test, character_test)
 
