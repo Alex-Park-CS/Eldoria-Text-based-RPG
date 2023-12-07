@@ -25,6 +25,9 @@ def main():
         except ValueError as e:
             print(e)
             continue
+        user_choice = direction
+        if user_choice == 'q':
+            break
         valid_move = validate_move(board, character, direction)
         if valid_move:
             move_character(character, direction)
@@ -33,10 +36,13 @@ def main():
         else:
             print("You cannot go there. Try again.")
 
-    if(character["currentHP"]) <= 0:
-        print("You died... The world falls to the hands of Baal, the new supreme leader of the world! All hail Baal!!")
+    if user_choice == 'q':
+        slow_print("You have quit the game. Goodbye!")
+    elif(character["currentHP"]) <= 0:
+        slow_print("You died... The world falls to the hands of Baal, "
+                   "the new supreme leader of the world! All hail Baal!!")
     else:
-        print("You have saved the world hero!! Thank you!!")
+        slow_print("You have saved the world hero!! Thank you!!")
 
 
 if __name__ == '__main__':
