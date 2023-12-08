@@ -9,7 +9,7 @@ from helper_functions.create_entity import (
 )
 
 
-def determine_event(board, character, shop, boss):
+def determine_event(board, character, shop, boss) -> None:
     """
     Determine what event is triggered based on the character's current position
 
@@ -54,7 +54,7 @@ def determine_event(board, character, shop, boss):
                        f"your inferior race...Farewell, weakling.")
 
 
-def chance_of_event(probability):
+def chance_of_event(probability) -> bool:
     """
     Determine if an event will occur based on the probability
     
@@ -71,7 +71,7 @@ def chance_of_event(probability):
         return False
 
 
-def check_if_lvl_10(character):
+def check_if_lvl_10(character) -> None:
     """
     Check if the character is level 10 or higher
     
@@ -101,7 +101,7 @@ def check_if_lvl_10(character):
         character["y-position"] += 1
 
 
-def check_for_orbs(character):
+def check_for_orbs(character) -> None:
     """
     Check if the character has 2 orbs to pass the gates
     
@@ -134,7 +134,7 @@ def check_for_orbs(character):
               "The door slowly creaks open, to uncover a long corridor...\n")
 
 
-def treasure_event(character, board):
+def treasure_event(character, board) -> None:
     """
     Trigger a treasure event
     
@@ -163,7 +163,7 @@ def treasure_event(character, board):
     board[(character["x-position"], character["y-position"])] = '^'
 
 
-def check_exp(character):
+def check_exp(character) -> None:
     """
     Check if currentEXP is higher than or equal to maxEXP.
 
@@ -200,7 +200,7 @@ def check_exp(character):
                    f"ATK: {character['atk']} --- EXP: {character['currentEXP']} / {character['maxEXP']}\n")
 
 
-def healing_altar(character):
+def healing_altar(character) -> None:
     """
     Heal the character to full HP
     
@@ -229,7 +229,7 @@ def healing_altar(character):
                f"You now have {character['currentHP']} / {character['maxHP']} HP.\n")
 
 
-def combat(character, enemy):
+def combat(character, enemy) -> None:
     """
     Trigger a combat event
     
@@ -277,7 +277,7 @@ def combat(character, enemy):
             slow_print("Not a valid command! Choose from attack('x') or run('z').")
 
 
-def combat_andromalius(character, board):
+def combat_andromalius(character, board) -> None:
     """
     Trigger a combat event with Andromalius
     
@@ -295,7 +295,7 @@ def combat_andromalius(character, board):
     board[(character["x-position"], character["y-position"])] = '*'
 
 
-def combat_marbas(character, board):
+def combat_marbas(character, board) -> None:
     """
     Trigger a combat event with Marbas
     
@@ -313,7 +313,7 @@ def combat_marbas(character, board):
     board[(character["x-position"], character["y-position"])] = '*'
 
 
-def combat_baal(character, boss):
+def combat_baal(character, boss) -> None:
     """
     Trigger a combat event with Baal
 
@@ -331,7 +331,7 @@ def combat_baal(character, boss):
     combat(character, boss)
 
 
-def shop_event(character, shop):
+def shop_event(character, shop) -> None:
     """
     Trigger a shop event
 
