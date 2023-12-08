@@ -1,7 +1,7 @@
 from helper_functions.display_for_users import print_character_stats
 
 
-def get_user_choice():
+def get_user_choice() -> str:
     """
     Get input direction from user in numbers.
 
@@ -21,7 +21,7 @@ def get_user_choice():
             raise ValueError("Invalid input. This input is not within the choices.\n")
             
 
-def validate_move(board, character, user_direction):
+def validate_move(board, character, user_direction) -> bool:
     """
     Check if the user's direction is within the bounds of the board.
 
@@ -78,7 +78,7 @@ def validate_move(board, character, user_direction):
         return False
 
 
-def move_character(character, user_direction):
+def move_character(character, user_direction) -> None:
     """
     Move character according to the user direction
 
