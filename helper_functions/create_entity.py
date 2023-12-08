@@ -1,4 +1,4 @@
-def make_board():
+def make_board() -> dict:
     """
     Create a game board using the rows and columns parameters.
 
@@ -37,7 +37,7 @@ def make_board():
     return map_dict
 
 
-def make_character():
+def make_character() -> dict:
     """
     Create a character dictionary with the following keys: name, maxHP, currentHP, gold, level, maxEXP, currentEXP,
     atk, move, x-position, y-position, orb.
@@ -56,7 +56,7 @@ def make_character():
     return character
 
 
-def make_pre_lv_10_field_mobs():
+def make_pre_lv_10_field_mobs() -> list:
     """
     Create a list of dictionaries of pre-level 10 field mobs with the following keys: name, currentHP, maxHP, atk,
     move, EXP, gold, runnable.
@@ -77,7 +77,7 @@ def make_pre_lv_10_field_mobs():
     return list_of_pre_lvl_10_mobs
 
 
-def make_post_lv_10_field_mobs():
+def make_post_lv_10_field_mobs() -> list:
     """
     Create a list of dictionaries of post-level 10 field mobs with the following keys: name, currentHP, maxHP, atk,
     move, EXP, gold, runnable.
@@ -98,7 +98,7 @@ def make_post_lv_10_field_mobs():
     return list_of_post_lvl_10_mobs
 
 
-def make_marbas():
+def make_marbas() -> dict:
     """
     Create a dictionary of the boss Marbas with the following keys: name, currentHP, maxHP, atk, move, EXP, gold,
     runnable.
@@ -115,7 +115,7 @@ def make_marbas():
     return boss
 
 
-def make_andromalius():
+def make_andromalius() -> dict:
     """
     Create a dictionary of the boss Andromalius with the following keys: name, currentHP, maxHP, atk, move, EXP, gold,
     runnable.
@@ -132,7 +132,7 @@ def make_andromalius():
     return boss
 
 
-def make_baal():
+def make_baal() -> dict:
     """
     Create a dictionary of the boss Baal with the following keys: name, currentHP, maxHP, atk, move, EXP, gold,
     runnable.
@@ -149,7 +149,7 @@ def make_baal():
     return boss
 
 
-def make_shop():
+def make_shop() -> list:
     """
     Create a list of dictionaries of items in the shop with the following keys: name, price, added_HP, added_ATK,
     move_upgrade, amount, effect.
