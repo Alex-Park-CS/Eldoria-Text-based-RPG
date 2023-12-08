@@ -33,7 +33,9 @@ def make_board() -> dict:
                     "X  ^  ^             X",
                     "XXXXXXXXX   XXXXXXXXX"]
 
-    map_dict = {(y, x): char for x, row in enumerate(map_of_board) for y, char in enumerate(row)}
+    map_dict = {(y, x): char for x in range(len(map_of_board[0]))
+                for y in range(len(map_of_board))
+                for char in map_of_board[x][y]}
     return map_dict
 
 
