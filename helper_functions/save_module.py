@@ -35,7 +35,7 @@ def save_game_character(character):
     :precondition: the dictionary keys are strings
     :postcondition: dictionary is saved as a JSON file
 
-    >>> test_dict = {'name': 'Ysera', 'maxHP': 100, 'currentHP': 100, 'gold': 100, 'level': 1, 'maxEXP': 50, 'currentEXP': 0, 'atk': 5, 'move': 'Magic Missile', 'x-position': 1, 'y-position': 2, 'orb': 0}
+    >>> test_dict = {'name': 'Ysera', 'maxHP': 100, 'currentHP': 100, 'gold': 100, 'level': 1}
     >>> save_game_character(test_dict)
     Character saved successfully to saves\\save_character.json!
 
@@ -58,7 +58,7 @@ def save_game_board(board):
     :precondition: the dictionary keys are strings
     :postcondition: dictionary is saved as a JSON file
 
-    >>> test_dict = {'(0, 0)': 'X', '(0, 1)': 'X', '(0, 2)': ' ', '(0, 3)': 'X', '(1, 0)': ' ', '(1, 1)': 'X', '(1, 2)': 'X', '(1, 3)': 'X', '(2, 0)': 'X', '(2, 1)': 'X', '(2, 2)': ' ', '(2, 3)': 'X'}
+    >>> test_dict = {'(0, 0)': 'X', '(0, 1)': 'X', '(0, 2)': ' ', '(0, 3)': 'X', '(1, 0)': ' '}
     >>> save_game_board(test_dict)
     Game board saved successfully to saves\\save_board.json!
 
@@ -79,7 +79,7 @@ def save_shop(shop):
     :precondition: the dictionary keys are strings
     :postcondition: dictionary is saved as a JSON file
 
-    >>> test_dict = {'(0, 0)': 'X', '(0, 1)': 'X', '(0, 2)': ' ', '(0, 3)': 'X', '(1, 0)': ' ', '(1, 1)': 'X', '(1, 2)': 'X', '(1, 3)': 'X', '(2, 0)': 'X', '(2, 1)': 'X', '(2, 2)': ' ', '(2, 3)': 'X'}
+    >>> test_dict = {'(0, 0)': 'X', '(0, 1)': 'X', '(0, 2)': ' ', '(0, 3)': 'X', '(1, 0)': ' ', '(1, 1)': 'X'
     >>> save_shop(test_dict)
     Shop saved successfully to saves\\save_shop.json!
     """
