@@ -144,21 +144,31 @@ def treasure_event(character, board) -> None:
     :precondition board: a dictionary with tuples as keys and strings as values
     :postcondition: triggers a treasure event
     """
+
     mystery_potion = random.randint(1, 10)
     slow_print("\nCongratulations! You have found a treasure box!")
     slow_print("You open the chest to find a small vial with luscious purple liquid sloshing around.\n")
-    user_input = input("Drink this liquid? Enter 'y' to drink, 'n' to throw away: \n").lower().strip()
-    if user_input == 'y':
-        if mystery_potion <= 6:
-            slow_print("The purple liquid revitalizes you. Gain 10 maxHP!")
-            character["maxHP"] += 10
-            character["currentHP"] += 10
-            slow_print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
-        elif mystery_potion > 6:
-            slow_print("Why are you drinking random shit off the ground? You deserve this. Lose 15 maxHP.")
-            character["maxHP"] -= 15
-            character["currentHP"] -= 15
-            slow_print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
+    while True:
+        user_input = input("Drink this liquid? Enter 'y' to drink, 'n' to throw away: \n").lower().strip()
+        if user_input == 'y':
+            if mystery_potion <= 6:
+                slow_print("The purple liquid revitalizes you. Gain 10 maxHP!")
+                character["maxHP"] += 10
+                character["currentHP"] += 10
+                slow_print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
+                break
+            elif mystery_potion > 6:
+                slow_print("Why are you drinking random shit off the ground? You deserve this. Lose 15 maxHP.")
+                character["maxHP"] -= 15
+                character["currentHP"] -= 15
+                slow_print(f"Your HP: {character['currentHP']} / {character['maxHP']}\n")
+                break
+        elif user_input == 'n':
+            slow_print("You decide to not drink the unknown liquid and throw the vial onto the ground.\n"
+                       "Mom did always say to not eat anything you find in the streets...\n")
+            break
+        else:
+            slow_print("\nInvalid input. Please enter either 'y' or 'n'.\n")
     # remove treasure event after event finishes
     board[(character["x-position"], character["y-position"])] = '^'
 
