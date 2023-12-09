@@ -345,7 +345,8 @@ def shop_event(character, shop) -> None:
                "Here are the items that I have managed to bring for you."
                "But they aren't free. I still have to feed my family you know?\n")
     for index, item in enumerate(shop, start=1):
-        slow_print(f"{index}. Item name: {item['name']}, Price: {item['price']} gold, {item['effect']}")
+        slow_print(f"{index}. Item name: {item['name']}, Price: {item['price']} gold, Quantity: {item['amount']} "
+                   f"{item['effect']}")
 
     slow_print(f"\nYou currently have {character['gold']} gold.\n")
     while True:

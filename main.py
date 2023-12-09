@@ -29,7 +29,7 @@ def main():
         elif user_choice == '2':
             character = make_character()
             board = make_board()
-            shop = load_game_shop()
+            shop = make_shop()
             break
         else:
             print("Those are not valid inputs. Try Again.")
