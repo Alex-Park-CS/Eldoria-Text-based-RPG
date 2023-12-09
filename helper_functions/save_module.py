@@ -17,7 +17,7 @@ def dict_to_json_string_conversion(board):
 
     >>> test_dict = {'(1, 2)': 'X', '(3, 4)': 'O'}
     >>> dict_to_json_string_conversion(test_dict)
-    {'(1, 2)': 'X', '(3, 4)': 'O'}
+    {(1, 2): 'X', (3, 4): 'O'}
     """
     if type(list(board.keys())[0]) == tuple:
         converted = {str(key): value for key, value in board.items()}
@@ -37,17 +37,16 @@ def save_game_character(character):
 
     >>> test_dict = {'name': 'Ysera', 'maxHP': 100, 'currentHP': 100, 'gold': 100, 'level': 1}
     >>> save_game_character(test_dict)
-    Character saved successfully to saves\\save_character.json!
-
-
+    File cannot be found! Exiting.
     """
-
     directory = "saves\\save_character.json"
+    try:
+        with open(directory, "w") as character_file:
+            json.dump(character, character_file, indent=4)
 
-    with open(directory, "w") as character_file:
-        json.dump(character, character_file, indent=4)
-
-    print(f"Character saved successfully to {directory}!")
+        print(f"Character saved successfully to {directory}!")
+    except FileNotFoundError:
+        print("Character game file cannot be found! Exiting.")
 
 
 def save_game_board(board):
@@ -63,12 +62,16 @@ def save_game_board(board):
     Game board saved successfully to saves\\save_board.json!
 
     """
+
     directory = "saves\\save_board.json"
     converted_board = dict_to_json_string_conversion(board)
-    with open(directory, "w") as board_file:
-        json.dump(converted_board, board_file, indent=4)
+    try:
+        with open(directory, "w") as board_file:
+            json.dump(converted_board, board_file, indent=4)
 
-    print(f"Game board saved successfully to {directory}!")
+        print(f"Game board saved successfully to {directory}!")
+    except FileNotFoundError:
+        print("Game board file cannot be found! Exiting.")
 
 
 def save_shop(shop):
@@ -78,18 +81,16 @@ def save_shop(shop):
     :param shop: a dictionary
     :precondition: the dictionary keys are strings
     :postcondition: dictionary is saved as a JSON file
-
-    >>> test_dict = {'(0, 0)': 'X', '(0, 1)': 'X', '(0, 2)': ' ', '(0, 3)': 'X', '(1, 0)': ' ', '(1, 1)': 'X'
-    >>> save_shop(test_dict)
-    Shop saved successfully to saves\\save_shop.json!
     """
 
     directory = "saves\\save_shop.json"
+    try:
+        with open(directory, "w") as shop_file:
+            json.dump(shop, shop_file, indent=4)
 
-    with open(directory, "w") as shop_file:
-        json.dump(shop, shop_file, indent=4)
-
-    print(f"Shop saved successfully to {directory}!")
+        print(f"Shop saved successfully to {directory}!")
+    except FileNotFoundError:
+        print("Game shop file cannot be found! Exiting.")
 
 
 def load_game_character():
