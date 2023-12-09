@@ -4,9 +4,20 @@ from ast import literal_eval
 
 def dict_to_json_string_conversion(board):
     """
+    Convert the dictionary keys from tuples to strings so that it can be saved as a JSON file.
 
-    :param board:
-    :return:
+    :param board: a dictionary
+    :precondition: the dictionary keys are tuples
+    :postcondition: the dictionary keys are strings
+    :return: a dictionary with string keys
+
+    >>> test_dict = {(1, 2): 'X', (3, 4): 'O'}
+    >>> dict_to_json_string_conversion(test_dict)
+    {'(1, 2)': 'X', '(3, 4)': 'O'}
+
+    >>> test_dict = {'(1, 2)': 'X', '(3, 4)': 'O'}
+    >>> dict_to_json_string_conversion(test_dict)
+    {'(1, 2)': 'X', '(3, 4)': 'O'}
     """
     if type(list(board.keys())[0]) == tuple:
         converted = {str(key): value for key, value in board.items()}
@@ -20,9 +31,14 @@ def save_game_character(character):
     """
     Save the current game state to a JSON file in the specified directory.
 
-    :param:
-    :precondition:
-    :postcondition:
+    :param character: a dictionary 
+    :precondition: the dictionary keys are strings
+    :postcondition: dictionary is saved as a JSON file
+
+    >>> test_dict = {'name': 'Ysera', 'maxHP': 100, 'currentHP': 100, 'gold': 100, 'level': 1, 'maxEXP': 50, 'currentEXP': 0, 'atk': 5, 'move': 'Magic Missile', 'x-position': 1, 'y-position': 2, 'orb': 0}
+    >>> save_game_character(test_dict)
+    Character saved successfully to saves\\save_character.json!
+
 
     """
 
@@ -36,9 +52,16 @@ def save_game_character(character):
 
 def save_game_board(board):
     """
+    Save the current game state to a JSON file in the specified directory.
 
-    :param board:
-    :return:
+    :param board: a dictionary
+    :precondition: the dictionary keys are strings
+    :postcondition: dictionary is saved as a JSON file
+
+    >>> test_dict = {'(0, 0)': 'X', '(0, 1)': 'X', '(0, 2)': ' ', '(0, 3)': 'X', '(1, 0)': ' ', '(1, 1)': 'X', '(1, 2)': 'X', '(1, 3)': 'X', '(2, 0)': 'X', '(2, 1)': 'X', '(2, 2)': ' ', '(2, 3)': 'X'}
+    >>> save_game_board(test_dict)
+    Game board saved successfully to saves\\save_board.json!
+
     """
     directory = "saves\\save_board.json"
     converted_board = dict_to_json_string_conversion(board)
@@ -52,10 +75,13 @@ def save_shop(shop):
     """
     Save the current game state to a JSON file in the specified directory.
 
-    :param:
-    :precondition:
-    :postcondition:
+    :param shop: a dictionary
+    :precondition: the dictionary keys are strings
+    :postcondition: dictionary is saved as a JSON file
 
+    >>> test_dict = {'(0, 0)': 'X', '(0, 1)': 'X', '(0, 2)': ' ', '(0, 3)': 'X', '(1, 0)': ' ', '(1, 1)': 'X', '(1, 2)': 'X', '(1, 3)': 'X', '(2, 0)': 'X', '(2, 1)': 'X', '(2, 2)': ' ', '(2, 3)': 'X'}
+    >>> save_shop(test_dict)
+    Shop saved successfully to saves\\save_shop.json!
     """
 
     directory = "saves\\save_shop.json"
@@ -69,7 +95,10 @@ def save_shop(shop):
 def load_game_character():
     """
     Load the saved JSON file as a dictionary into a character variable
-    :return:
+
+    :precondition: the json object keys are strings
+    :postcondition: the json object is changed to a dictionary data type
+    :return: a dictionary
     """
     char = {}
     directory = "saves\\save_character.json"
@@ -85,7 +114,10 @@ def load_game_character():
 def load_game_board():
     """
     Load the saved JSON file as a dictionary into a board variable
-    :return:
+    
+    :precondition: the json object keys are strings
+    :postcondition: the json object keys are tuples
+    :return: a dictionary
     """
     game_bd = {}
     directory = "saves\\save_board.json"
@@ -100,8 +132,11 @@ def load_game_board():
 
 def load_game_shop():
     """
-    Load the saved JSON file as a dictionary into a character variable
-    :return:
+    Load the saved JSON file as a dictionary into a shop variable
+
+    :precondition: the json object keys are strings
+    :postcondition: the json object is changed to a dictionary data type
+    :return: a dictionary
     """
     shop = {}
     directory = "saves\\save_shop.json"
