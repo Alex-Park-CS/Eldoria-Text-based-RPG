@@ -37,7 +37,7 @@ def save_game_character(character):
 
     >>> test_dict = {'name': 'Ysera', 'maxHP': 100, 'currentHP': 100, 'gold': 100, 'level': 1}
     >>> save_game_character(test_dict)
-    File cannot be found! Exiting.
+    Character game file cannot be found! Exiting.
     """
     directory = "saves\\save_character.json"
     try:
@@ -59,7 +59,7 @@ def save_game_board(board):
 
     >>> test_dict = {'(0, 0)': 'X', '(0, 1)': 'X', '(0, 2)': ' ', '(0, 3)': 'X', '(1, 0)': ' '}
     >>> save_game_board(test_dict)
-    Game board saved successfully to saves\\save_board.json!
+    Game board file cannot be found! Exiting.
 
     """
 
