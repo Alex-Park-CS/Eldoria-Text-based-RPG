@@ -2,7 +2,7 @@ from unittest import TestCase
 from helper_functions.create_entity import make_pre_lv_10_field_mobs
 
 
-class Test(TestCase):
+class TestPre10(TestCase):
     def test_make_pre_lv_10_field_mobs(self):
         expected = [{'name': 'Mutant Boar', 'currentHP': 50, 'maxHP': 50, 'atk': 5, 'move': 'Headbutt', 'EXP': 10,
                      'gold': 5, 'runnable': True}, {'name': 'Legion Soldier', 'currentHP': 100, 'maxHP': 100,
