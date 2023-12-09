@@ -17,6 +17,7 @@ def print_board(board, character):
     >>> print_board(board_test, character_test)
     XX
     *O
+    <BLANKLINE>
     """
     max_row = max(coord[0] for coord in board.keys())
     max_col = max(coord[1] for coord in board.keys())
