@@ -166,12 +166,12 @@ def make_shop() -> list:
     {'name': 'Forbidden White Powder', 'price': 40, 'added_EXP': 100, 'amount': 2,
     'effect': 'Increases currentEXP by 100 points'}]
     """
-    pill_of_vitality = {"name": "Pill of Vitality", "price": 50, "added_HP": 30,
+    pill_of_vitality = {"name": "Pill of Vitality", "price": 50, "added_HP": 10,
                         "amount": 1, "effect": "Increases maxHP by 30 points"}
-    elixir_of_vigor = {"name": "Elixer of Vigor", "price": 65, "added_ATK": 10,
+    elixir_of_vigor = {"name": "Elixer of Vigor", "price": 65, "added_ATK": 3,
                        "move_upgrade": "Arcane Barrage", "amount": 1,
                        "effect": "Increases ATK by 10 points"}
-    forbidden_powder = {"name": "Forbidden White Powder", "price": 40, "added_EXP": 100, 
+    forbidden_powder = {"name": "Forbidden White Powder", "price": 40, "added_EXP": 75,
                         "amount": 2, "effect": "Increases currentEXP by 100 points"}
     list_of_items = [pill_of_vitality, elixir_of_vigor, forbidden_powder]
     return list_of_items
