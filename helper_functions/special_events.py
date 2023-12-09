@@ -1,82 +1,12 @@
 import random
 import math
-from ast import literal_eval
-from helper_functions.display_for_users import slow_print, print_board
+from helper_functions.display_for_users import slow_print
 from helper_functions.create_entity import (
     make_pre_lv_10_field_mobs,
     make_post_lv_10_field_mobs,
     make_marbas,
-    make_andromalius,
+    make_andromalius
 )
-import json
-
-
-def dict_to_json_string_conversion(board):
-    if type(list(board.keys())[0]) == tuple:
-        converted = {str(key): value for key, value in board.items()}
-    else:
-        converted = {literal_eval(key): value for key, value in board.items()}
-
-    return converted
-
-
-def save_game_character(character):
-    """
-    Save the current game state to a JSON file in the specified directory.
-    """
-
-    directory = "saves\\save_character.json"
-
-    with open(directory, "w") as game_file:
-        json.dump(character, game_file, indent=4)
-
-    print(f"Character saved successfully to {directory}!")
-
-
-def save_game_board(board):
-    """
-
-    :param board:
-    :return:
-    """
-    directory = "saves\\save_board.json"
-    converted_board = dict_to_json_string_conversion(board)
-    with open(directory, "w") as game_file:
-        json.dump(converted_board, game_file, indent=4)
-
-    print(f"Game board saved successfully to {directory}!")
-
-
-def load_game_character():
-    """
-    Load the saved JSON file as a dictionary into a character variable
-    :return:
-    """
-    char = {}
-    directory = "saves\\save_character.json"
-    try:
-        with open(directory, 'r') as char_info:
-            char = json.load(char_info)
-    except FileNotFoundError:
-        print("Save file not found. Creating a new character...")
-
-    return char
-
-
-def load_game_board():
-    """
-    Load the saved JSON file as a dictionary into a board variable
-    :return:
-    """
-    game_bd = {}
-    directory = "saves\\save_board.json"
-    try:
-        with open(directory, 'r') as bd_info:
-            game_bd = json.load(bd_info)
-    except FileNotFoundError:
-        print("Save file not found. Creating a new board...")
-
-    return dict_to_json_string_conversion(game_bd)
 
 
 def determine_event(board, character, shop, boss) -> None:
@@ -466,7 +396,6 @@ def main():
                  "currentHP": 100, "maxEXP": 50, "currentEXP": 0, "atk": 5, "move": "Magic Missile",
                  "x-position": 0, "y-position": 0, "model": "O"}
     print(character)
-    board = {(0, 0): 1, (1, 0): 2}
     print(mob)
     print(character)
 

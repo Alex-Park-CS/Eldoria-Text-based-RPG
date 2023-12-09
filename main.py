@@ -6,24 +6,30 @@ from helper_functions.display_for_users import (
     slow_print,
     print_character_stats)
 from helper_functions.create_entity import make_board, make_shop, make_baal, make_character
-from helper_functions.special_events import (
-    determine_event,
+from helper_functions.special_events import determine_event
+from helper_functions.save_module import (
     save_game_character,
     load_game_character,
     save_game_board,
-    load_game_board)
+    load_game_board
+)
 
 
 def main():
-    board = {}
-    character = {}
-    user_choice = input("Choose 1 to load save file, or 2 to create new game: ")
-    if user_choice == '1':
-        character = load_game_character()
-        board = load_game_board()
-    elif user_choice == '2':
-        character = make_character()
-        board = make_board()
+
+    while True:
+        user_choice = input("Choose 1 to load save file, or 2 to create new game: ")
+        if user_choice == '1':
+            character = load_game_character()
+            board = load_game_board()
+            break
+        elif user_choice == '2':
+            character = make_character()
+            board = make_board()
+            break
+        else:
+            print("Those are not valid inputs. Try Again.")
+
     shop = make_shop()
     boss = make_baal()
     user_choice = ''
