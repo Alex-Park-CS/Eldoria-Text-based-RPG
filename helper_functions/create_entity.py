@@ -175,3 +175,12 @@ def make_shop() -> list:
                         "amount": 2, "effect": "Increases currentEXP by 75 points"}
     list_of_items = [pill_of_vitality, elixir_of_vigor, forbidden_powder]
     return list_of_items
+
+
+def main():
+    char = make_character()
+    print(char)
+
+
+if __name__ == "__main__":
+    main()
