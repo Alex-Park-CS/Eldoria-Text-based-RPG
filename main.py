@@ -11,7 +11,9 @@ from helper_functions.save_module import (
     save_game_character,
     load_game_character,
     save_game_board,
-    load_game_board
+    load_game_board,
+    save_shop,
+    load_game_shop
 )
 
 
@@ -22,15 +24,16 @@ def main():
         if user_choice == '1':
             character = load_game_character()
             board = load_game_board()
+            shop = load_game_shop()
             break
         elif user_choice == '2':
             character = make_character()
             board = make_board()
+            shop = load_game_shop()
             break
         else:
             print("Those are not valid inputs. Try Again.")
 
-    shop = make_shop()
     boss = make_baal()
     user_choice = ''
     slow_print(intro_prompt(), delay=0.001)
@@ -59,6 +62,7 @@ def main():
     if user_choice == 'q':
         save_game_character(character)
         save_game_board(board)
+        save_shop(shop)
         slow_print("You have quit the game. Goodbye!")
     elif(character["currentHP"]) <= 0:
         slow_print("You died... The world falls to the hands of Baal, "
