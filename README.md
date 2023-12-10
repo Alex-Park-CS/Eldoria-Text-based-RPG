@@ -20,5 +20,5 @@ Eldoria is a classic text-based rpg game that emulates the widely used text-base
 In this game, users will be able to move their character denoted as the 'O' character in the minimap
 provided. The 'X' characters indicate that it is a non-accessible block, while all other letters are
 fair game, and a surprise for users! The combat in this game is derived from a classic dungeons
-and dragons type of game, where the user rolls a die to determine their final damage dealt on monsters.
+and dragons type of game, where the user rolls a die(1~12) to determine their final damage dealt on monsters.
 With that, have fun with the game, and try to save the world of Eldoria!
