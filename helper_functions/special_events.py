@@ -253,7 +253,10 @@ def combat(character, enemy) -> None:
     while character["currentHP"] > 0 and enemy["currentHP"] > 0:
         slow_print(f"Current Status: ")
         slow_print(f"Your HP: {character['currentHP']} / {character['maxHP']}")
-        slow_print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
+        if {enemy['name'][len({enemy['name']})-1]} == 's':
+            slow_print(f"{enemy['name']}' HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
+        else:
+            slow_print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n")
         user_choice = input('Enter "x" to attack or "z" to run away: ')
         if user_choice == 'x':
             user_roll = random.randint(1, 12)
@@ -262,7 +265,10 @@ def combat(character, enemy) -> None:
             enemy["currentHP"] -= damage
             slow_print(f"You used {character['move']}!", delay=0.025)
             slow_print(f"You dealt {damage} damage to {enemy['name']}!", delay=0.025)
-            slow_print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n", delay=0.025)
+            if {enemy['name'][len({enemy['name']}) - 1]} == 's':
+                slow_print(f"{enemy['name']}' HP: {enemy['currentHP']} / {enemy['maxHP']}\n", delay=0.025)
+            else:
+                slow_print(f"{enemy['name']}'s HP: {enemy['currentHP']} / {enemy['maxHP']}\n", delay=0.025)
             if enemy["currentHP"] > 0:
                 character["currentHP"] -= enemy["atk"]
                 slow_print(f"{enemy['name']} uses {enemy['move']}!", delay=0.025)
