@@ -359,11 +359,11 @@ def shop_event(character, shop) -> None:
     :precondition shop: a list of dictionaries
     :postcondition: triggers a shop event
     """
-    slow_print("Welcome, hero. I have travelled thousands of miles to be of assistance."
-               "Here are the items that I have managed to bring for you."
+    slow_print("Welcome, hero. I have travelled thousands of miles to be of assistance.\n"
+               "Here are the items that I have managed to bring for you.\n"
                "But they aren't free. I still have to feed my family you know?\n")
     for index, item in enumerate(shop, start=1):
-        slow_print(f"{index}. Item name: {item['name']}, Price: {item['price']} gold, Quantity: {item['amount']} "
+        slow_print(f"{index}. Item name: {item['name']}, Price: {item['price']} gold, Quantity: {item['amount']}, "
                    f"{item['effect']}")
 
     slow_print(f"\nYou currently have {character['gold']} gold.\n")
