@@ -112,7 +112,7 @@ def make_marbas() -> dict:
     {'name': 'Marbas', 'currentHP': 800, 'maxHP': 800, 'atk': 40, 'EXP': 1000, 'gold': 300, 'move': 'Tainting Hands',
     'runnable': False}
     """
-    boss = {"name": "Marbas", "currentHP": 800, "maxHP": 800, "atk": 40, "EXP": 1000, "gold": 300,
+    boss = {"name": "Marbas", "currentHP": 800, "maxHP": 800, "atk": 65, "EXP": 1000, "gold": 300,
             "move": "Tainting Hands", "runnable": False}
     return boss
 
@@ -129,7 +129,7 @@ def make_andromalius() -> dict:
     {'name': 'Andromalius', 'currentHP': 900, 'maxHP': 900, 'atk': 35, 'EXP': 1100, 'gold': 350,
     'move': "Serpent's Fang", 'runnable': False}
     """
-    boss = {"name": "Andromalius", "currentHP": 900, "maxHP": 900, "atk": 35, "EXP": 1100, "gold": 350,
+    boss = {"name": "Andromalius", "currentHP": 1000, "maxHP": 1000, "atk": 55, "EXP": 1100, "gold": 350,
             "move": "Serpent's Fang", "runnable": False}
     return boss
 
@@ -146,7 +146,7 @@ def make_baal() -> dict:
     {'name': 'Baal', 'currentHP': 2000, 'maxHP': 2000, 'atk': 50, 'EXP': 2000, 'gold': 350,
     'move': 'Thunderstorm', 'runnable': False}
     """
-    boss = {"name": "Baal", "currentHP": 2000, "maxHP": 2000, "atk": 50, "EXP": 2000, "gold": 350,
+    boss = {"name": "Baal", "currentHP": 2000, "maxHP": 2000, "atk": 70, "EXP": 2000, "gold": 400,
             "move": "Thunderstorm", "runnable": False}
     return boss
 
@@ -171,8 +171,8 @@ def make_shop() -> list:
     elixir_of_vigor = {"name": "Elixer of Vigor", "price": 65, "added_ATK": 3,
                        "move_upgrade": "Arcane Barrage", "amount": 1,
                        "effect": "Increases ATK by 3 points"}
-    forbidden_powder = {"name": "Forbidden White Powder", "price": 40, "added_EXP": 75,
-                        "amount": 2, "effect": "Increases currentEXP by 75 points"}
+    forbidden_powder = {"name": "Forbidden White Powder", "price": 100, "added_EXP": 100,
+                        "amount": 2, "effect": "Increases currentEXP by 100 points"}
     list_of_items = [pill_of_vitality, elixir_of_vigor, forbidden_powder]
     return list_of_items
 
