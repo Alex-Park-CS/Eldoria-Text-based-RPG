@@ -2,7 +2,7 @@ import time
 from helper_functions.create_entity import make_character
 
 
-def print_board(board, character):
+def print_board(board, character) -> None:
     """
     Print the minimap of the game board.
     
@@ -32,7 +32,7 @@ def print_board(board, character):
     print()
 
 
-def intro_prompt():
+def intro_prompt() -> str:
     prompt = (
         "E   L   D   O   R   I   A\n\n"
 
@@ -61,7 +61,7 @@ def intro_prompt():
     return prompt
 
 
-def slow_print(text, delay=0.007):
+def slow_print(text, delay=0.007) -> None:
     """
     Print one character at a time with a delay between each character.
     
@@ -83,7 +83,7 @@ def slow_print(text, delay=0.007):
     print()  # Add a newline at the end
 
 
-def print_character_stats(character):
+def print_character_stats(character) -> None:
     """
     Print the character's stats.
     

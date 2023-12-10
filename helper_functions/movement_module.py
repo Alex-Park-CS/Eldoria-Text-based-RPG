@@ -109,8 +109,6 @@ def move_character(character, user_direction) -> None:
 
 
 def main():
-    # user_direction = "w"
-    # character = {"x-position": 5, "y-position": 5}tilte
     print("hello")
 
 

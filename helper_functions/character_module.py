@@ -1,7 +1,7 @@
 from helper_functions.create_entity import make_character
 
 
-def is_alive(character):
+def is_alive(character) -> bool:
     """
     Checks if the character's HP is over 0
 

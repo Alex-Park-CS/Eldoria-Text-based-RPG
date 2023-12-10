@@ -2,7 +2,7 @@ import json
 from ast import literal_eval
 
 
-def dict_to_json_string_conversion(board):
+def dict_to_json_string_conversion(board) -> dict:
     """
     Convert the dictionary keys from tuples to strings so that it can be saved as a JSON file.
 
@@ -27,7 +27,7 @@ def dict_to_json_string_conversion(board):
     return converted
 
 
-def save_game_character(character):
+def save_game_character(character) -> None:
     """
     Save the current game state to a JSON file in the specified directory.
 
@@ -49,7 +49,7 @@ def save_game_character(character):
         print("Character game file cannot be found! Exiting.")
 
 
-def save_game_board(board):
+def save_game_board(board) -> None:
     """
     Save the current game state to a JSON file in the specified directory.
 
@@ -74,7 +74,7 @@ def save_game_board(board):
         print("Game board file cannot be found! Exiting.")
 
 
-def save_shop(shop):
+def save_shop(shop) -> None:
     """
     Save the current game state to a JSON file in the specified directory.
 
@@ -93,7 +93,7 @@ def save_shop(shop):
         print("Game shop file cannot be found! Exiting.")
 
 
-def load_game_character():
+def load_game_character() -> dict:
     """
     Load the saved JSON file as a dictionary into a character variable
 
@@ -112,7 +112,7 @@ def load_game_character():
     return char
 
 
-def load_game_board():
+def load_game_board() -> dict:
     """
     Load the saved JSON file as a dictionary into a board variable
     
@@ -131,7 +131,7 @@ def load_game_board():
     return dict_to_json_string_conversion(game_bd)
 
 
-def load_game_shop():
+def load_game_shop() -> dict:
     """
     Load the saved JSON file as a dictionary into a shop variable
 
