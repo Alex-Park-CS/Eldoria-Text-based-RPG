@@ -111,7 +111,7 @@ def load_game_character() -> dict:
         with open(directory, 'r') as char_info:
             char = json.load(char_info)
     except FileNotFoundError:
-        print("Save file not found. Creating a new character...")
+        print("Save file not found. Exiting...")
 
     return char
 
@@ -131,7 +131,7 @@ def load_game_board() -> dict:
         with open(directory, 'r') as bd_info:
             game_bd = json.load(bd_info)
     except FileNotFoundError:
-        print("Save file not found. Creating a new board...")
+        print("Save file not found. Exiting...")
 
     return dict_to_json_string_conversion(game_bd)
 
@@ -151,6 +151,6 @@ def load_game_shop() -> dict:
         with open(directory, 'r') as shop_info:
             shop = json.load(shop_info)
     except FileNotFoundError:
-        print("Save file not found. Creating a new shopkeeper...")
+        print("Save file not found. Exiting...")
 
     return shop
