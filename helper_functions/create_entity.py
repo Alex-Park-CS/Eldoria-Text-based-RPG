@@ -172,7 +172,7 @@ def make_shop() -> list:
                        "move_upgrade": "Arcane Barrage", "amount": 1,
                        "effect": "Increases ATK by 3 points"}
     forbidden_powder = {"name": "Forbidden White Powder", "price": 100, "added_EXP": 100,
-                        "amount": 2, "effect": "Increases currentEXP by 100 points"}
+                        "amount": 50, "effect": "Increases currentEXP by 100 points"}
     list_of_items = [pill_of_vitality, elixir_of_vigor, forbidden_powder]
     return list_of_items
 
