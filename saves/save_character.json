@@ -1,14 +1,14 @@
 {
     "name": "Ysera",
-    "maxHP": 100,
-    "currentHP": 100,
-    "gold": 100,
-    "level": 1,
+    "maxHP": 200,
+    "currentHP": 200,
+    "gold": 120,
+    "level": 10,
     "maxEXP": 50,
-    "currentEXP": 0,
-    "atk": 5,
+    "currentEXP": 35,
+    "atk": 15,
     "move": "Magic Missile",
-    "x-position": 15,
-    "y-position": 11,
+    "x-position": 10,
+    "y-position": 7,
     "orb": 0
 }
