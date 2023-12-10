@@ -34,6 +34,7 @@ def save_game_character(character) -> None:
     :param character: a dictionary 
     :precondition: the dictionary keys are strings
     :postcondition: dictionary is saved as a JSON file
+    :raises FileNotFoundError: if the character save file cannot be found
 
     >>> test_dict = {'name': 'Ysera', 'maxHP': 100, 'currentHP': 100, 'gold': 100, 'level': 1}
     >>> save_game_character(test_dict)
@@ -56,6 +57,7 @@ def save_game_board(board) -> None:
     :param board: a dictionary
     :precondition: the dictionary keys are strings
     :postcondition: dictionary is saved as a JSON file
+    :raises FileNotFoundError: if the game board save file cannot be found
 
     >>> test_dict = {'(0, 0)': 'X', '(0, 1)': 'X', '(0, 2)': ' ', '(0, 3)': 'X', '(1, 0)': ' '}
     >>> save_game_board(test_dict)
@@ -81,6 +83,7 @@ def save_shop(shop) -> None:
     :param shop: a dictionary
     :precondition: the dictionary keys are strings
     :postcondition: dictionary is saved as a JSON file
+    :raises FileNotFoundError: if the shop save file cannot be found
     """
 
     directory = "saves\\save_shop.json"
@@ -100,6 +103,7 @@ def load_game_character() -> dict:
     :precondition: the json object keys are strings
     :postcondition: the json object is changed to a dictionary data type
     :return: a dictionary
+    :raises FileNotFoundError: if the character save file cannot be found
     """
     char = {}
     directory = "saves\\save_character.json"
@@ -119,6 +123,7 @@ def load_game_board() -> dict:
     :precondition: the json object keys are strings
     :postcondition: the json object keys are tuples
     :return: a dictionary
+    :raises FileNotFoundError: if the game board save file cannot be found
     """
     game_bd = {}
     directory = "saves\\save_board.json"
@@ -138,6 +143,7 @@ def load_game_shop() -> dict:
     :precondition: the json object keys are strings
     :postcondition: the json object is changed to a dictionary data type
     :return: a dictionary
+    :raises FileNotFoundError: if the shop save file cannot be found
     """
     shop = {}
     directory = "saves\\save_shop.json"

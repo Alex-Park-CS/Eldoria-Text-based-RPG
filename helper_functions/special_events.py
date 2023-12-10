@@ -358,6 +358,8 @@ def shop_event(character, shop) -> None:
     :precondition character: a dictionary with strings as keys and values
     :precondition shop: a list of dictionaries
     :postcondition: triggers a shop event
+    :raises ValueError: if user enters in anything other than listed choices
+    :raises IndexError: if user enters a number that is not within the choices
     """
     slow_print("Welcome, hero. I have travelled thousands of miles to be of assistance.\n"
                "Here are the items that I have managed to bring for you.\n"
