@@ -92,10 +92,10 @@ def make_post_lv_10_field_mobs() -> list:
     'runnable': True}, {'name': 'Legion Commander', 'currentHP': 400, 'maxHP': 400, 'move': 'Sword Slash',
     'atk': 20, 'EXP': 60, 'gold': 75, 'runnable': True}]
     """
-    imp = {"name": "Imp", "currentHP": 100, "maxHP": 100, "atk": 15, "EXP": 25,
+    imp = {"name": "Imp", "currentHP": 300, "maxHP": 300, "atk": 20, "EXP": 35,
            "move": "Tail Whip", "gold": 20, "runnable": True}
     commander = {"name": "Legion Commander", "currentHP": 400, "maxHP": 400,
-                 "move": "Sword Slash", "atk": 20, "EXP": 60, "gold": 75, "runnable": True}
+                 "move": "Sword Slash", "atk": 40, "EXP": 60, "gold": 75, "runnable": True}
     list_of_post_lvl_10_mobs = [imp, commander]
     return list_of_post_lvl_10_mobs
 
