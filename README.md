@@ -1,4 +1,4 @@
-Documentation
+## Documentation
 
 | Python elements                     |             One example of where to find it              |
 |:------------------------------------|:--------------------------------------------------------:|

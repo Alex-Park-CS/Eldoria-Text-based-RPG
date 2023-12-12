@@ -3,22 +3,22 @@
         "name": "Pill of Vitality",
         "price": 50,
         "added_HP": 10,
-        "amount": 1,
-        "effect": "Increases maxHP by 30 points"
+        "amount": 0,
+        "effect": "Increases maxHP by 10 points"
     },
     {
-        "name": "Elixer of Vigor",
+        "name": "Elixir of Vigor",
         "price": 65,
         "added_ATK": 3,
         "move_upgrade": "Arcane Barrage",
-        "amount": 1,
-        "effect": "Increases ATK by 10 points"
+        "amount": 0,
+        "effect": "Increases ATK by 3 points"
     },
     {
         "name": "Forbidden White Powder",
-        "price": 40,
-        "added_EXP": 75,
-        "amount": 2,
+        "price": 100,
+        "added_EXP": 100,
+        "amount": 48,
         "effect": "Increases currentEXP by 100 points"
     }
 ]
