@@ -32,7 +32,7 @@ def main():
             shop = make_shop()
             break
         else:
-            print("Those are not valid inputs. Try Again.")
+            print("Those are not valid inputs. Try Again!")
 
     boss = make_baal()
     user_choice = ''
